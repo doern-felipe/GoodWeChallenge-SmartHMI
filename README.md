@@ -24,7 +24,7 @@ Este projeto foi construído de forma iterativa. O repositório está dividido e
 2. Dê um duplo clique no arquivo `.html` para executá-lo diretamente no seu navegador.
 
 ### Rodando a Versão 4 (Integração IoT)
-1. Acesse o projeto do hardware no Wokwi: `[Wokwi](https://wokwi.com/projects/475378026171880449)`
+1. Acesse o projeto do hardware no Wokwi: `[https://wokwi.com/projects/475378026171880449]`
 2. Inicie a simulação (botão Play) e aguarde o terminal exibir a mensagem `MQTT Conectado ao Broker em Nuvem!`.
 3. Navegue até a pasta `v4` e abra o arquivo `.html` no navegador.
 4. Clique no botão de engrenagem flutuante (Modo Demonstração) no canto inferior direito.
