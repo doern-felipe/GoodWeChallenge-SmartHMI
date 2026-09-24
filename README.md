@@ -65,9 +65,9 @@ A proposta busca melhorar a experiência de carregamento através de uma interfa
 
 ## 🛠️ Tecnologias
 
-**Web:** HTML5 · CSS3 · JavaScript
-**IoT:** ESP32 · MicroPython · Wokwi · MQTT · WebSockets
-**App:** Kotlin · Jetpack Compose · Room · CameraX · ML Kit · Socket.IO
+**Web:** HTML5 · CSS3 · JavaScript  
+**IoT:** ESP32 · MicroPython · Wokwi · MQTT · WebSockets  
+**App Prototype:** HTML5 · CSS3 · JavaScript
 
 ---
 
