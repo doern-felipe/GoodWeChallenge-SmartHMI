@@ -15,8 +15,12 @@
 <body>
 
   <div class="mobile-frame">
+    <!-- Topbar com botão de Voltar -->
     <div class="topbar">
       <div class="topbar-left">
+        <button id="btn-back-home" onclick="goToLanding()" style="display:none; margin-right:8px; padding:4px;">
+            <span id="ic-arrowleft"></span>
+        </button>
         <img src="goodwe_logo.png" alt="GoodWe" class="logo logo-sm">
         <span class="sysname">COMPANION</span>
       </div>
@@ -29,19 +33,36 @@
       </div>
     </div>
 
+    <!-- Conteúdo do App -->
     <div class="app-content" id="app-content">
-      <!-- ABA 1: CONECTAR -->
-      <div id="tab-connect" class="screen active">
+      
+      <!-- TELA DE SELEÇÃO INICIAL -->
+      <div id="screen-landing" class="screen active wrap-sm center" style="justify-content: center; height: 100%;">
+        <img src="goodwe_logo.png" alt="GoodWe" class="logo logo-md logo-glow" style="margin: 0 auto 30px;">
+        <h2 style="font-size: 24px; font-weight: 800; margin-bottom: 40px;" data-i18n="select_mode">Onde você vai carregar?</h2>
         
-        <div id="screen-home" class="sub-screen active wrap-sm center">
-          <img src="goodwe_logo.png" alt="GoodWe" class="logo logo-md logo-glow" style="margin: 30px auto 20px;">
-          <h1 class="state-title" data-i18n="connect_title">Conectar</h1>
-          <p class="avail" style="margin-bottom: 25px" data-i18n="connect_sub">Vincule ao Smart HMI</p>
-          
-          <div style="width: 100%; max-width: 280px; margin: 0 auto 25px; text-align: left;">
-            <label data-i18n="select_profile_home" style="display: block; font-size: 13px; color: var(--text-1); margin-bottom: 8px;">Perfil a utilizar:</label>
-            <select id="home-profile-select" class="styled-select"></select>
+        <button class="prof" style="display:flex; align-items:center; gap: 20px; width: 100%; margin-bottom: 20px; border-left: 4px solid var(--red);" onclick="selectAppMode('res')">
+          <div style="background:var(--red-dim); padding:16px; border-radius:50%; color:var(--red);"><span id="ic-home-big"></span></div>
+          <div style="text-align:left;">
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom:4px;" data-i18n="mode_res">Minha Casa</h3>
+            <p style="font-size: 12px; color: var(--text-1);" data-i18n="mode_res_sub">Gerencie perfis, solar e Wi-Fi</p>
           </div>
+        </button>
+
+        <button class="prof" style="display:flex; align-items:center; gap: 20px; width: 100%; border-left: 4px solid var(--orange);" onclick="selectAppMode('com')">
+          <div style="background:rgba(255,167,38,0.1); padding:16px; border-radius:50%; color:var(--orange);"><span id="ic-build-big"></span></div>
+          <div style="text-align:left;">
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom:4px;" data-i18n="mode_com">Estação Pública</h3>
+            <p style="font-size: 12px; color: var(--text-1);" data-i18n="mode_com_sub">Escaneie o QR da HMI na rua</p>
+          </div>
+        </button>
+      </div>
+
+      <!-- ABA 1: CONECTAR -->
+      <div id="tab-connect" class="screen">
+        <div id="screen-home" class="sub-screen wrap-sm center">
+          <h1 class="state-title" data-i18n="connect_title" style="margin-top:20px;">Conectar</h1>
+          <p class="avail" style="margin-bottom: 35px" data-i18n="connect_sub">Vincule ao Smart HMI</p>
 
           <div class="auth-row" style="flex-direction: column; align-items: center; gap: 24px;">
             <button class="btn btn-red" style="width: 100%; max-width: 280px;" onclick="startConnectionFlow('scanner')">
@@ -76,10 +97,13 @@
         <div id="screen-session-setup" class="sub-screen wrap-sm center">
           <div class="vstate ok" style="margin-top: 20px;"><span id="ic-check-1"></span><span data-i18n="hmi_found">HMI Encontrado</span></div>
           <h2 style="font-size: 32px; letter-spacing: 2px; color: var(--red); margin: 10px 0 20px;" id="connected-code-display">---</h2>
-          <div style="text-align: left; background: rgba(20,20,20,.8); padding: 16px; border-radius: 12px; margin-bottom: 24px;">
-            <h4 style="margin-bottom: 12px; color: var(--text-2);" data-i18n="confirm_connection">Confirmar conexão com:</h4>
-            <div id="confirm-profile-details"></div>
+          
+          <div id="commercial-profile-selector" style="text-align: left; background: rgba(20,20,20,.8); padding: 16px; border-radius: 12px; margin-bottom: 24px;">
+            <label data-i18n="select_profile_home" style="display: block; font-size: 13px; color: var(--text-1); margin-bottom: 12px; font-weight:bold;">Perfil a utilizar:</label>
+            <select id="session-profile-select" class="styled-select" style="margin-bottom:12px;" onchange="updateSessionPreview()"></select>
+            <div id="confirm-profile-details" style="padding-top:12px; border-top:1px solid #333; display:none;"></div>
           </div>
+
           <div style="display:flex; gap: 12px;">
             <button class="btn" onclick="cancelSession()" style="flex: 1" data-i18n="cancel">Cancelar</button>
             <button class="btn btn-red" onclick="autorizarSessaoHome()" style="flex: 1" data-i18n="confirm">Confirmar</button>
@@ -101,7 +125,7 @@
             </div>
           </div>
 
-          <div style="background: rgba(20,20,20,.8); padding: 16px; border-radius: 12px; margin-top: 20px; width: 100%; text-align: left;">
+          <div id="realtime-data-panel" style="background: rgba(20,20,20,.8); padding: 16px; border-radius: 12px; margin-top: 20px; width: 100%; text-align: left; display: none;">
             <div style="display:flex; justify-content: space-between; margin-bottom: 8px;">
               <span style="color: var(--text-2);" data-i18n="time_lbl">Tempo:</span>
               <span id="app-charging-time" style="color: var(--text-0); font-weight: 600;">00:00:00</span>
@@ -133,7 +157,7 @@
               <span id="ic-refresh"></span> <span data-i18n="sync_hmi">Sincronizar</span>
             </button>
             <button class="btn btn-red" style="flex:1; padding: 10px;" onclick="showSubScreen('screen-create-profile', 'tab-profiles')">
-              <span id="ic-plus"></span> <span data-i18n="create_profile">Criar Perfil</span>
+              <span id="ic-plus"></span> <span data-i18n="create_profile">Novo</span>
             </button>
           </div>
         </div>
@@ -142,27 +166,26 @@
           <h2 style="margin-top:30px; color:var(--red);" data-i18n="sync_hmi">Sincronizar com HMI</h2>
           <p style="color:var(--text-1); margin-bottom: 30px;" data-i18n="sync_sub">Envie os perfis para o seu carregador Residencial.</p>
           <div class="field" style="width: 100%; text-align: left; margin-bottom: 20px;">
-            <label>Código do Carregador (Ex: RES-1234)</label>
+            <label data-i18n="code_lbl_sync">Código do Carregador</label>
             <input type="text" id="sync-code-input" placeholder="RES-XXXX" style="text-align: center; font-size: 20px; letter-spacing: 2px; text-transform: uppercase;">
           </div>
-          <button class="btn btn-red" style="width: 100%;" onclick="validateSyncCode()" data-i18n="save">Confirmar e Enviar</button>
+          <button class="btn btn-red" style="width: 100%;" onclick="validateSyncCode()" data-i18n="confirm_send">Confirmar e Enviar</button>
           <button class="link-btn" onclick="showSubScreen('screen-profiles-list', 'tab-profiles')" data-i18n="cancel">Cancelar</button>
         </div>
 
         <div id="screen-create-profile" class="sub-screen wrap-sm" style="padding-bottom: 40px;">
           <h2 style="margin-bottom: 20px; color: var(--red);" data-i18n="new_profile">Novo Perfil</h2>
           <div class="field-grid" style="grid-template-columns: 1fr;">
-            <div class="field"><label data-i18n="profile_name">Nome do Perfil</label><input type="text" id="p-name" placeholder="Ex: Principal"></div>
+            <div class="field"><label data-i18n="profile_name">Nome do Perfil</label><input type="text" id="p-name"></div>
             <div class="field"><label data-i18n="brand">Marca</label><select id="p-brand" onchange="updateModels()" class="styled-select"></select></div>
             <div class="field"><label data-i18n="model">Modelo</label><select id="p-model" class="styled-select"></select></div>
             <div class="field">
               <label data-i18n="charge_mode">Modo de Carregamento</label>
               <select id="p-mode" class="styled-select">
                 <option value="free" data-i18n="mode_free">Livre</option>
-                <option value="timer" data-i18n="mode_timer">Timer (Ex: 22:00 as 06:00)</option>
+                <option value="timer" data-i18n="mode_timer">Timer</option>
               </select>
             </div>
-            
             <div class="field">
               <label data-i18n="current_limit">Limite de Corrente (A)</label>
               <select id="p-current" class="styled-select">
@@ -175,12 +198,11 @@
                 <option value="32">32 A</option>
               </select>
             </div>
-
             <div class="field"><label data-i18n="charge_limit">Limite de Carga (%)</label><input type="number" id="p-limit" min="10" max="100" value="80"></div>
           </div>
 
           <div class="sec-head" style="margin-top: 30px;"><span id="ic-card"></span><h2 style="margin:0; font-size: 18px;" data-i18n="payment">Pagamento</h2></div>
-          <p style="font-size: 12px; color: var(--orange); margin-bottom: 12px;" data-i18n="mvp_note">* Apenas dados de teste do MVP são aceitos.</p>
+          <p style="font-size: 12px; color: var(--orange); margin-bottom: 12px;" data-i18n="mvp_note">* Apenas dados de teste.</p>
           <div class="field-grid" style="grid-template-columns: 1fr;">
             <div class="field"><label data-i18n="card_num">Número do Cartão</label><input type="text" id="p-card-num" value="1111 2222 3333 4444"></div>
             <div class="field"><label data-i18n="card_name">Nome no Cartão</label><input type="text" id="p-card-name" value="xxxxxxxx"></div>
@@ -194,13 +216,74 @@
             <button class="btn btn-red" onclick="saveProfile()" style="flex: 1" data-i18n="save">Salvar</button>
           </div>
         </div>
-
       </div>
+
+      <!-- ABA 3: SOLAR (Apenas Residencial) -->
+      <div id="tab-solar" class="screen wrap-sm center">
+        <h2 style="margin-bottom: 20px; color: var(--orange);" data-i18n="solar_monitor">Monitor Solar</h2>
+        <div style="background: rgba(255,167,38,0.1); border: 1px solid rgba(255,167,38,0.4); padding: 20px; border-radius: 12px; text-align: left;">
+            <div style="display:flex; justify-content: space-between; margin-bottom: 12px;">
+              <span style="color: var(--text-2);" data-i18n="solar_intensity">Intensidade:</span>
+              <span id="app-solar-pct" style="color: var(--orange); font-weight: 700; font-size:18px;">0 %</span>
+            </div>
+            <div style="display:flex; justify-content: space-between;">
+              <span style="color: var(--text-2);" data-i18n="solar_raw">Luz Raw:</span>
+              <span id="app-solar-lux" style="color: var(--text-0); font-weight: 600;">0</span>
+            </div>
+        </div>
+        <p style="margin-top:20px; font-size: 13px; color: var(--text-1);" data-i18n="solar_sync">Sincronizado via MQTT IoT.</p>
+      </div>
+
+      <!-- TELAS DE AJUDA COMERCIAL -->
+      <div id="screen-chat" class="screen wrap-sm" style="height: 100%; flex-direction: column;">
+        <div class="sec-head" style="margin-bottom: 10px;"><span id="ic-chat-type"></span><h2 id="chat-title" style="margin:0;">Chat</h2></div>
+        <div id="chat-disclaimer" style="background:var(--red-dim); color:var(--red); padding:10px; border-radius:8px; font-size:12px; text-align:center; margin-bottom:15px;"></div>
+        
+        <div style="flex:1; background:rgba(20,20,20,0.8); border-radius:12px; border:1px solid var(--border-soft); padding:15px; margin-bottom:15px; display:flex; flex-direction:column; gap:10px; overflow-y:auto; min-height: 400px;">
+            <div id="chat-initial-msg" style="background:rgba(255,255,255,0.1); padding:10px 14px; border-radius:12px 12px 12px 0; align-self:flex-start; max-width:85%; font-size:14px;" data-i18n="chat_msg_1">
+                Olá! Como posso ajudar você hoje?
+            </div>
+        </div>
+        
+        <div style="display:flex; gap:10px;">
+            <input type="text" id="chat-input" style="flex:1; background:rgba(10,10,10,.85); border:1px solid var(--border); color:var(--text-0); border-radius:24px; padding:12px 16px; font-size:14px; outline:none;">
+            <button class="btn btn-red" style="border-radius:50%; width:46px; height:46px; padding:0; display:flex; align-items:center; justify-content:center;" onclick="showToast(t('chat_demo_alert'), true)"><span id="ic-send"></span></button>
+        </div>
+      </div>
+
+      <div id="screen-faq" class="screen wrap-sm scrollable">
+        <div class="sec-head"><span id="ic-faq-head"></span><h2 style="margin:0;" data-i18n="faq_title">Perguntas Frequentes</h2></div>
+        <div style="display:flex; flex-direction:column; gap:10px; margin-top:10px;">
+            <div class="prof" style="padding:15px;">
+                <div style="font-weight:700; font-size:15px; color:var(--red); margin-bottom:6px;" data-i18n="faq_q1">Como inicio o carregamento?</div>
+                <div style="font-size:13px; color:var(--text-1);" data-i18n="faq_a1">Escaneie o QR Code na tela da HMI ou digite o código. Confirme a conexão no seu app.</div>
+            </div>
+            <div class="prof" style="padding:15px;">
+                <div style="font-weight:700; font-size:15px; color:var(--red); margin-bottom:6px;" data-i18n="faq_q2">Por que o carregador parou antes de 100%?</div>
+                <div style="font-size:13px; color:var(--text-1);" data-i18n="faq_a2">A recarga obedece ao Limite de Carga estipulado no seu Perfil.</div>
+            </div>
+            <div class="prof" style="padding:15px;">
+                <div style="font-weight:700; font-size:15px; color:var(--red); margin-bottom:6px;" data-i18n="faq_q3">Qual a diferença da Gestão Automática?</div>
+                <div style="font-size:13px; color:var(--text-1);" data-i18n="faq_a3">Se o limite de corrente estiver como 'Automático', a estação se comunicará com o Smart HMI para usar energia inteligente.</div>
+            </div>
+        </div>
+      </div>
+
     </div>
 
-    <div class="bottom-nav">
+    <!-- Navegação Inferior -->
+    <div class="bottom-nav" id="bottom-nav" style="display:none;">
       <button class="nav-item active" onclick="switchTab('tab-connect', this)"><span id="ic-nav-zap"></span> <span data-i18n="nav_connect">Conectar</span></button>
-      <button class="nav-item" onclick="switchTab('tab-profiles', this)"><span id="ic-nav-users"></span> <span data-i18n="nav_profiles">Perfis</span></button>
+      <button class="nav-item" id="nav-item-profiles" onclick="switchTab('tab-profiles', this)"><span id="ic-nav-users"></span> <span data-i18n="nav_profiles">Perfis</span></button>
+      <button class="nav-item" id="nav-item-solar" onclick="switchTab('tab-solar', this)"><span id="ic-nav-sun"></span> <span data-i18n="solar_monitor">Solar</span></button>
+    </div>
+
+    <!-- FAB Comercial -->
+    <div class="fab" id="fab-com" onclick="toggleFabMenu()" style="display:none;"><span id="ic-help"></span></div>
+    <div class="fab-menu" id="fab-menu">
+        <button class="fab-item" onclick="openSimChat('ai')"><span id="ic-cpu"></span> <span data-i18n="chat_ai_title">Chat IA</span></button>
+        <button class="fab-item" onclick="openSimChat('human')"><span id="ic-human"></span> <span data-i18n="chat_human_title">Chat Humano</span></button>
+        <button class="fab-item" onclick="openFAQ()"><span id="ic-faq"></span> <span data-i18n="faq_title">Perguntas Frequentes</span></button>
     </div>
   </div>
 

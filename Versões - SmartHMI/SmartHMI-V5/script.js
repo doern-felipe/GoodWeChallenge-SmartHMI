@@ -3,6 +3,7 @@
 
     /* =============== LOGO =============== */
     var LOGO = "goodwe_logo.png";
+    
     function logo(cls) { 
         return '<img src="' + LOGO + '" alt="GoodWe" class="logo ' + (cls || '') + '">'; 
     }
@@ -10,44 +11,83 @@
     /* =============== ÍCONES (SVG Inline) =============== */
     var I = {
         home: '<path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
+        
         building: '<path d="M4 21V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v16"/><path d="M15 9h4a1 1 0 0 1 1 1v11"/><path d="M8 8h2M8 12h2M8 16h2"/><path d="M2 21h20"/>',
+        
         arrow: '<path d="M5 12h14"/><path d="m12 5 7 7-7"/>',
+        
         arrowleft: '<path d="M19 12H5"/><path d="m12 19-7-7 7-7"/>',
+        
         zap: '<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
+        
         plug: '<path d="M9 2v6M15 2v6"/><path d="M6 8h12v3a6 6 0 0 1-6 6 6 6 0 0 1-6-6z"/><path d="M12 17v5"/>',
+        
         wifi: '<path d="M5 12.5a11 11 0 0 1 14 0"/><path d="M8.5 15.8a6 6 0 0 1 7 0"/><path d="M12 19h.01"/>',
+        
         wifioff: '<path d="m2 2 20 20"/><path d="M5 12.5a11 11 0 0 1 5-2.7"/><path d="M19 12.5a11 11 0 0 0-4-2.5"/><path d="M8.5 15.8a6 6 0 0 1 3-1.6"/><path d="M12 19h.01"/>',
+        
         users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+        
         activity: '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
+        
         settings: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1A1.7 1.7 0 0 0 4.6 8.6a1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/>',
+        
         grid: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
+        
         gauge: '<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-3.5 3.5"/>',
+        
         chart: '<path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="4" width="3" height="14"/>',
+        
         calendar: '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+        
         clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+        
         lock: '<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+        
         unlock: '<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-2"/>',
+        
         card: '<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/>',
+        
         qr: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM19 19h2v2h-2zM14 19h2M19 14h2"/>',
+        
         phone: '<rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/>',
+        
         check: '<circle cx="12" cy="12" r="9"/><path d="m8.5 12.2 2.3 2.3 4.7-4.7"/>',
+        
         alert: '<path d="M10.3 3.9 2 18a2 2 0 0 0 1.7 3h16.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0"/><path d="M12 9v4M12 17h.01"/>',
+        
         play: '<path d="M6 4l14 8-14 8z"/>',
+        
         pause: '<rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>',
+        
         stop: '<rect x="5" y="5" width="14" height="14" rx="2"/>',
+        
         refresh: '<path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/>',
+        
         sliders: '<path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h10M18 18h2"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="16" cy="18" r="2"/>',
+        
         battery: '<rect x="2" y="7" width="17" height="10" rx="2"/><path d="M22 11v2"/>',
+        
         wrench: '<path d="M14.7 6.3a4 4 0 0 0 5.3 5.2l-9 9a2.8 2.8 0 0 1-4-4l9-9z"/>',
+        
         shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>',
+        
         dollar: '<path d="M12 2v20"/><path d="M17 6.5c0-2-2.2-3-5-3s-5 1-5 3.2S9 10 12 10.5s5 1.3 5 3.3-2.2 3.2-5 3.2-5-1-5-3"/>',
+        
         wallet: '<path d="M3 7a2 2 0 0 1 2-2h13a1 1 0 0 1 1 1v2"/><path d="M3 7v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-8H6a3 3 0 0 1-3-3"/><path d="M17 14h.01"/>',
+        
         cloud: '<path d="M17.5 19a4.5 4.5 0 0 0 .3-9 6 6 0 0 0-11.6 1.6A3.7 3.7 0 0 0 6.5 19z"/>',
+        
         chip: '<rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 2v3M14 2v3M10 19v3M14 19v3M2 10h3M2 14h3M19 10h3M19 14h3"/>',
+        
         x: '<path d="M18 6 6 18M6 6l12 12"/>',
+        
         thermo: '<path d="M14 14.8V5a2 2 0 1 0-4 0v9.8a4 4 0 1 0 4 0"/>',
+        
         bolt2: '<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
+        
         link: '<path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/>',
+        
         plus: '<line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line>'
     };
 
@@ -60,65 +100,193 @@
         pt: {
             smart_sub: 'UM CARREGADOR, DUAS EXPERIÊNCIAS',
             disclaimer: 'Protótipo conceitual — não é um produto oficial GoodWe.',
-            f1: 'Um carregador', f2: 'Offline-first', f3: 'Gestão centralizada',
-            explore_res: 'Explorar residencial', explore_com: 'Explorar comercial',
-            home: 'CASA', business: 'EMPRESA', residential: 'Residencial', commercial: 'Comercial',
-            res_l1: 'Carregamento privado', res_l2: 'Usuários família', res_l3: 'Controle local simples',
-            com_l1: 'Recarga pública/privada', com_l2: 'Múltiplos usuários', com_l3: 'Gestão do operador',
-            onb_q: 'Como este carregador será usado?', onb_foot: 'Um carregador · duas experiências · o software define o ambiente',
-            back: 'Voltar', close: 'Fechar', save: 'Salvar', confirm: 'Confirmar', cancel: 'Cancelar',
-            online: 'Online', offline: 'Offline', local_cloud: 'LOCAL + CLOUD', cloud_local: 'CLOUD + LOCAL',
-            RESIDENCIAL: 'RESIDENCIAL', COMERCIAL: 'COMERCIAL',
-            nav_charger: 'Carregador', nav_profiles: 'Perfis', nav_activity: 'Atividade', nav_settings: 'Configurações',
-            nav_stations: 'Estações', nav_users: 'Usuários', nav_ops: 'Operações', nav_reports: 'Relatórios',
-            ready: 'Pronto para carregar', available: 'Disponível',
-            v_not_conn: 'Veículo não conectado', v_conn: 'Veículo conectado', connect_v: 'Conectar veículo', connecting: 'Conectando...',
+            f1: 'Um carregador',
+            f2: 'Offline-first',
+            f3: 'Gestão centralizada',
+            explore_res: 'Explorar residencial',
+            explore_com: 'Explorar comercial',
+            home: 'CASA',
+            business: 'EMPRESA',
+            residential: 'Residencial',
+            commercial: 'Comercial',
+            res_l1: 'Carregamento privado',
+            res_l2: 'Usuários família',
+            res_l3: 'Controle local simples',
+            com_l1: 'Recarga pública/privada',
+            com_l2: 'Múltiplos usuários',
+            com_l3: 'Gestão do operador',
+            onb_q: 'Como este carregador será usado?',
+            onb_foot: 'Um carregador · duas experiências · o software define o ambiente',
+            back: 'Voltar',
+            close: 'Fechar',
+            save: 'Salvar',
+            confirm: 'Confirmar',
+            cancel: 'Cancelar',
+            online: 'Online',
+            offline: 'Offline',
+            local_cloud: 'LOCAL + CLOUD',
+            cloud_local: 'CLOUD + LOCAL',
+            RESIDENCIAL: 'RESIDENCIAL',
+            COMERCIAL: 'COMERCIAL',
+            nav_charger: 'Carregador',
+            nav_profiles: 'Perfis',
+            nav_activity: 'Atividade',
+            nav_settings: 'Configurações',
+            nav_stations: 'Estações',
+            nav_users: 'Usuários',
+            nav_ops: 'Operações',
+            nav_reports: 'Relatórios',
+            ready: 'Pronto para carregar',
+            available: 'Disponível',
+            v_not_conn: 'Veículo não conectado',
+            v_conn: 'Veículo conectado',
+            connect_v: 'Conectar veículo',
+            connecting: 'Conectando...',
             disconnect: 'Desconectar',
-            power: 'POTÊNCIA', energy: 'ENERGIA', time: 'TEMPO', lockL: 'BLOQUEIO', eta: 'ETA', target: 'META',
-            off: 'OFF', on: 'ON', enabled: 'Ativo', disabled: 'Desativado',
-            start_charge: 'Iniciar carregamento', pause_charge: 'Pausar carregamento', stop_charge: 'Parar carregamento',
-            resume_charge: 'Retomar carregamento', charging: 'CARREGANDO', paused: 'PAUSADO', completed: 'CONCLUÍDO',
+            power: 'POTÊNCIA',
+            energy: 'ENERGIA',
+            time: 'TEMPO',
+            lockL: 'BLOQUEIO',
+            eta: 'ETA',
+            target: 'META',
+            off: 'OFF',
+            on: 'ON',
+            enabled: 'Ativo',
+            disabled: 'Desativado',
+            start_charge: 'Iniciar carregamento',
+            pause_charge: 'Pausar carregamento',
+            stop_charge: 'Parar carregamento',
+            resume_charge: 'Retomar carregamento',
+            charging: 'CARREGANDO',
+            paused: 'PAUSADO',
+            completed: 'CONCLUÍDO',
             new_session: 'Nova sessão',
-            curr_limit: 'Limite de corrente', curr_limit_s: 'LIMITE DE<br>CORRENTE', schedule: 'Agendamento', timer: 'Timer',
-            lock: 'Bloqueio', load_mgmt: 'Gestão de carga', start_t: 'Início', end_t: 'Fim', target_l: 'Alvo',
-            fam_profiles: 'Perfis familiares', sync_local: 'Os perfis são importados do App e permanecem salvos offline.',
+            curr_limit: 'Limite de corrente',
+            curr_limit_s: 'LIMITE DE<br>CORRENTE',
+            schedule: 'Agendamento',
+            timer: 'Timer',
+            lock: 'Bloqueio',
+            load_mgmt: 'Gestão de carga',
+            start_t: 'Início',
+            end_t: 'Fim',
+            target_l: 'Alvo',
+            fam_profiles: 'Perfis familiares',
+            sync_local: 'Os perfis são importados do App e permanecem salvos offline.',
             rfid_foot: 'Perfis configurados via App · armazenados localmente no carregador',
-            activity: 'Atividade', sys_status: 'Status do sistema',
-            d_power: 'Potência', d_temp: 'Temperatura', d_veh: 'Comunicação veículo', d_safe: 'Segurança', d_ctrl: 'Controlador local',
-            auth_method: 'MÉTODO DE AUTENTICAÇÃO', rfid: 'RFID', qr: 'QR Code', app: 'App',
+            activity: 'Atividade',
+            sys_status: 'Status do sistema',
+            d_power: 'Potência',
+            d_temp: 'Temperatura',
+            d_veh: 'Comunicação veículo',
+            d_safe: 'Segurança',
+            d_ctrl: 'Controlador local',
+            auth_method: 'MÉTODO DE AUTENTICAÇÃO',
+            rfid: 'RFID',
+            qr: 'QR Code',
+            app: 'App',
             detecting: 'Detectando...',
-            rfid_detected: 'RFID detectado', qr_detected: 'QR Code detectado', app_detected: 'App detectado',
-            scan_qr: 'Escaneie o QR Code', scan_qr_sub: 'Abra o app e aponte a câmera',
-            type_app: 'Digite o código no App', type_app_sub: 'Para vincular a STATION 04',
-            account: 'Conta', personal: 'Personal',
-            payment: 'Pagamento', tariff: 'Tarifa', avail_power: 'Potência disponível',
-            select_power: 'Selecionar potência', power_limit_note: 'Limite de potência configurado pelo operador da estação.',
-            est_cost: 'CUSTO ESTIMADO', est_remain: 'RESTANTE ESTIMADO',
-            op_access: 'Acessar plataforma do operador', op_mode: 'MODO OPERADOR', hub: 'GoodWe Charging Hub',
-            st_total: 'ESTAÇÕES TOTAIS', st_charging: 'CARREGANDO', st_avail: 'DISPONÍVEIS', st_maint: 'EM MANUTENÇÃO', st_err: 'COM ERRO',
-            s_available: 'DISPONÍVEL', s_charging: 'CARREGANDO', s_maintenance: 'MANUTENÇÃO', s_error: 'ERRO',
-            users: 'Usuários', user: 'USUÁRIO', rfid_card: 'CARTÃO RFID', paymentU: 'PAGAMENTO', sessions: 'SESSÕES',
-            load_title: 'Gestão de carga', site_limit: 'LIMITE DE POTÊNCIA DO SITE', cur_demand: 'DEMANDA ATUAL',
-            lm_state: 'GESTÃO DE CARGA', active: 'Ativo',
-            reports: 'Relatórios', r_energy: 'ENERGIA', r_sessions: 'SESSÕES', r_cost: 'CUSTO ESTIMADO',
-            this_week: 'esta semana', est_revenue: 'receita estimada',
-            ch_energy: 'Energia · kWh / dia', ch_sessions: 'Sessões / dia', ch_revenue: 'Receita estimada · R$',
-            settings: 'Configurações', restricted: 'Restrito ao operador',
-            station: 'STATION', status: 'STATUS', session: 'SESSÃO', cost: 'CUSTO',
-            err_title: 'Erro de comunicação com o veículo', try_again: 'Tentar novamente',
-            local_diag: 'Diagnóstico local', contact_op: 'Contatar operador',
+            rfid_detected: 'RFID detectado',
+            qr_detected: 'QR Code detectado',
+            app_detected: 'App detectado',
+            scan_qr: 'Escaneie o QR Code',
+            scan_qr_sub: 'Abra o app e aponte a câmera',
+            type_app: 'Digite o código no App',
+            type_app_sub: 'Para vincular a STATION 04',
+            account: 'Conta',
+            personal: 'Personal',
+            payment: 'Pagamento',
+            tariff: 'Tarifa',
+            avail_power: 'Potência disponível',
+            select_power: 'Selecionar potência',
+            power_limit_note: 'Limite de potência configurado pelo operador da estação.',
+            est_cost: 'CUSTO ESTIMADO',
+            est_remain: 'RESTANTE ESTIMADO',
+            op_access: 'Acessar plataforma do operador',
+            op_mode: 'MODO OPERADOR',
+            hub: 'GoodWe Charging Hub',
+            st_total: 'ESTAÇÕES TOTAIS',
+            st_charging: 'CARREGANDO',
+            st_avail: 'DISPONÍVEIS',
+            st_maint: 'EM MANUTENÇÃO',
+            st_err: 'COM ERRO',
+            s_available: 'DISPONÍVEL',
+            s_charging: 'CARREGANDO',
+            s_maintenance: 'MANUTENÇÃO',
+            s_error: 'ERRO',
+            users: 'Usuários',
+            user: 'USUÁRIO',
+            rfid_card: 'CARTÃO RFID',
+            paymentU: 'PAGAMENTO',
+            sessions: 'SESSÕES',
+            load_title: 'Gestão de carga',
+            site_limit: 'LIMITE DE POTÊNCIA DO SITE',
+            cur_demand: 'DEMANDA ATUAL',
+            lm_state: 'GESTÃO DE CARGA',
+            active: 'Ativo',
+            reports: 'Relatórios',
+            r_energy: 'ENERGIA',
+            r_sessions: 'SESSÕES',
+            r_cost: 'CUSTO ESTIMADO',
+            this_week: 'esta semana',
+            est_revenue: 'receita estimada',
+            ch_energy: 'Energia · kWh / dia',
+            ch_sessions: 'Sessões / dia',
+            ch_revenue: 'Receita estimada · R$',
+            settings: 'Configurações',
+            restricted: 'Restrito ao operador',
+            station: 'STATION',
+            status: 'STATUS',
+            session: 'SESSÃO',
+            cost: 'CUSTO',
+            err_title: 'Erro de comunicação com o veículo',
+            try_again: 'Tentar novamente',
+            local_diag: 'Diagnóstico local',
+            contact_op: 'Contatar operador',
             offline_active: 'OPERAÇÃO LOCAL ATIVA — FUNÇÕES ESSENCIAIS DISPONÍVEIS',
-            conn_restored: 'Conexão restabelecida', syncing: 'Sincronizando dados locais...', sync_done: 'SINCRONIZAÇÃO CONCLUÍDA',
-            sy1: 'Sessões de carregamento', sy2: 'Dados de energia', sy3: 'Atividade de usuários', sy4: 'Configurações', sy5: 'Eventos', sy6: 'Registros de pagamento',
-            demo: 'Modo demonstração', d_conn: 'CONEXÃO', d_veh_s: 'VEÍCULO', d_state: 'ESTADO', d_batt: 'BATERIA',
-            d_auth: 'AUTENTICAÇÃO', d_op: 'OPERADOR',
-            d_connected: 'Conectado', d_disconnected: 'Desconectado', d_charge: 'Carregar', d_pause: 'Pausar',
-            d_finish: 'Concluir', d_error: 'Erro', d_rfid: 'RFID detectado',
-            d_high: 'Alta demanda (280 kW)', d_norm: 'Demanda normal (300 kW)', d_st3: 'Station 03: erro', d_reset: 'Resetar demo',
-            cfg_users: 'Usuários', cfg_rfid: 'RFID', cfg_pay: 'Pagamentos', cfg_tariff: 'Tarifas', cfg_limits: 'Limites de potência',
-            cfg_load: 'Gestão de carga', cfg_sched: 'Agendamento', cfg_rep: 'Relatórios', cfg_energy: 'Energia', cfg_maint: 'Manutenção',
-            cfg_diag: 'Diagnósticos', cfg_net: 'Rede', cfg_fw: 'Firmware', cfg_int: 'Integrações', cfg_adm: 'Administração',
-            days: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'], weekends: 'FINS DE SEMANA'
+            conn_restored: 'Conexão restabelecida',
+            syncing: 'Sincronizando dados locais...',
+            sync_done: 'SINCRONIZAÇÃO CONCLUÍDA',
+            sy1: 'Sessões de carregamento',
+            sy2: 'Dados de energia',
+            sy3: 'Atividade de usuários',
+            sy4: 'Configurações',
+            sy5: 'Eventos',
+            sy6: 'Registros de pagamento',
+            demo: 'Modo demonstração',
+            d_conn: 'CONEXÃO',
+            d_veh_s: 'VEÍCULO',
+            d_state: 'ESTADO',
+            d_batt: 'BATERIA',
+            d_auth: 'AUTENTICAÇÃO',
+            d_op: 'OPERADOR',
+            d_connected: 'Conectado',
+            d_disconnected: 'Desconectado',
+            d_charge: 'Carregar',
+            d_pause: 'Pausar',
+            d_finish: 'Concluir',
+            d_error: 'Erro',
+            d_rfid: 'RFID detectado',
+            d_high: 'Alta demanda (280 kW)',
+            d_norm: 'Demanda normal (300 kW)',
+            d_st3: 'Station 03: erro',
+            d_reset: 'Resetar demo',
+            cfg_users: 'Usuários',
+            cfg_rfid: 'RFID',
+            cfg_pay: 'Pagamentos',
+            cfg_tariff: 'Tarifas',
+            cfg_limits: 'Limites de potência',
+            cfg_load: 'Gestão de carga',
+            cfg_sched: 'Agendamento',
+            cfg_rep: 'Relatórios',
+            cfg_energy: 'Energia',
+            cfg_maint: 'Manutenção',
+            cfg_diag: 'Diagnósticos',
+            cfg_net: 'Rede',
+            cfg_fw: 'Firmware',
+            cfg_int: 'Integrações',
+            cfg_adm: 'Administração',
+            days: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+            weekends: 'FINS DE SEMANA'
         },
         en: {
             smart_sub: 'ONE CHARGER, TWO EXPERIENCES', disclaimer: 'Concept prototype — not an official GoodWe product.',
@@ -204,7 +372,7 @@
     var ST_NAMES = ['Ana Costa', 'Carlos Lima', 'Beatriz Souza', 'Pedro Alves', 'Marina Reis', 'Rafael Dias'];
 
     function mkStations() {
-        var avail = [1, 7, 10, 13], err = [3], maint = [5], pwSet = [22, 18.4, 16, 11, 7.4], out = [], ui = 0;
+        var avail = [1, 7, 10, 13, 2], err = [3], maint = [5], pwSet = [22, 18.4, 16, 11, 7.4], out = [], ui = 0;
         for (var i = 1; i <= 24; i++) {
             var s = { id: i };
             if (err.indexOf(i) >= 0) s.status = 'error';
@@ -212,8 +380,12 @@
             else if (avail.indexOf(i) >= 0) s.status = 'available';
             else s.status = 'charging';
             
+            s.maxPowerLimit = (i % 3 === 0 ? 22 : i % 2 === 0 ? 11 : 7.4);
+
             if (s.status === 'charging') {
                 s.power = (i === 4 || i === 8) ? 18.4 : pwSet[(i * 3) % pwSet.length];
+                if (s.power > s.maxPowerLimit) s.power = s.maxPowerLimit;
+
                 s.user = (i === 4) ? 'João Silva' : ST_NAMES[ui++ % ST_NAMES.length];
                 s.energy = +(s.power * 0.69 + (i % 5)).toFixed(1);
                 s.elapsed = (i === 4) ? 37 * 60 + 21 : ((i * 617) % 3400) + 300;
@@ -227,7 +399,7 @@
         return out;
     }
 
-    /* =============== MÁQUINA DE ESTADO GLOBAL =============== */
+    /* =============== ESTADO GLOBAL =============== */
     var S = {
         animateNext: true,
         speed: 1, 
@@ -238,9 +410,13 @@
         demo: false,
         modal: null,
         solar: { connected: false, lux: 0, percent: 0, angle: 0 },
+        reports: { errors: [
+            {id: 'E-042', st: 3, msg: 'Falha de Comunicação ISO 15118', level: 'Alto', res: false},
+            {id: 'M-019', st: 5, msg: 'Manutenção Agendada', level: 'Médio', res: false}
+        ]},
         res: {
             tab: 'charger', v: 'idle', batt: 42, target: 80, power: 10.8, energy: 0, sec: 0,
-            limit: 32, lock: false, load: true, timer: null, syncCode: '', activeProfileIdx: 0,
+            limit: 32, maxLocalLimit: 22, lock: false, load: true, timer: null, syncCode: '', activeProfileIdx: 0,
             sched: { s: '22:00', e: '06:00', t: 80, d: [1, 1, 1, 1, 1, 0, 0] },
             profiles: [
                 { n: 'JOÃO', c: 'c-red', a: '32 A', h: 'Timer', rawLimit: '32' },
@@ -248,16 +424,14 @@
             ]
         },
         com: {
-            tab: 'charger', step: 'idle', method: null, user: null, batt: 64, target: 100, mode: 'Livre',
-            car: 'Desconhecido', energy: 0, sec: 0, power: 18.4, sel: 22, max: 22, tariff: 1.89, cost: 0,
-            err: false, appCodeStr: ''
+            tab: 'charger', step: 'station', selStation: null, method: null, user: null, batt: 64, target: 100, mode: 'Livre',
+            car: 'Desconhecido', energy: 0, sec: 0, power: 18.4, sel: 22, max: 22, tariff: 1.89, cost: 0, err: false, appCodeStr: ''
         },
         op: { tab: 'stations', station: null },
         stations: mkStations(),
         siteLimit: 300
     };
 
-    /* =============== FUNÇÕES UTILITÁRIAS =============== */
     function pad(n) { return (n < 10 ? '0' : '') + n; }
     function hms(s) { 
         s = Math.floor(s); 
@@ -290,7 +464,7 @@
     function getBatteryCapacity(carModel) {
         if (!carModel) return 60;
         var c = carModel.toUpperCase();
-        if (c.includes("MODEL S") || c.includes("MODEL X") || c.includes("CYBERTRUCK") || c.includes("EX90") || c.includes("TAYCAN")) return 100;
+        if (c.includes("MODEL S") || c.includes("MODEL X") || c.includes("CYBERTRUCK") || c.includes("TAYCAN")) return 100;
         if (c.includes("SEAL") || c.includes("MODEL Y") || c.includes("ID.4") || c.includes("ID.5") || c.includes("EQE") || c.includes("Q8")) return 80;
         if (c.includes("MODEL 3") || c.includes("YUAN") || c.includes("XC40") || c.includes("POLESTAR") || c.includes("NIRO")) return 65;
         if (c.includes("ID.3") || c.includes("BOLT") || c.includes("LEAF") || c.includes("MEGANE")) return 55;
@@ -326,11 +500,8 @@
 
             if (c.batt >= c.target) {
                 c.batt = c.target;
-                c.step = 'done';
+                A.comStop(); 
                 dirty = true;
-                if (typeof mqttClient !== 'undefined' && mqttClient.connected && c.appCodeStr) {
-                    mqttClient.publish('goodwe_hmi/session/' + c.appCodeStr + '/to_app', JSON.stringify({ action: 'ended' }));
-                }
             } else if (c.tab === 'charger') {
                 var elPct = document.getElementById('com-pct');
                 var elEn = document.getElementById('com-energy');
@@ -367,17 +538,11 @@
                 if (r.sched.s <= r.sched.e) {
                     inWindow = (hr >= r.sched.s && hr <= r.sched.e);
                 } else {
-                    inWindow = (hr >= r.sched.s || hr <= r.sched.e); 
+                    inWindow = (hr >= r.sched.s || hr <= r.sched.e);
                 }
 
                 if (r.sched.d[day] && inWindow) {
-                    r.v = 'charging';
-                    
-                    var activeProf = S.res.profiles[S.res.activeProfileIdx];
-                    if (activeProf && activeProf.rawLimit && activeProf.rawLimit !== 'auto') {
-                        S.res.limit = parseInt(activeProf.rawLimit);
-                        S.res.load = false; 
-                    }
+                    A.resForceStart();
                     dirty = true;
                 }
             }
@@ -422,17 +587,44 @@
         lang: function (v) { S.lang = v; },
         pickMode: function (m) {
             if (m === 'res') { S.view = 'res'; S.res.tab = 'charger'; }
-            else { S.view = 'com'; S.com.tab = 'charger'; }
+            else { S.view = 'com'; S.com.step = 'station'; S.com.tab = 'charger'; }
             window.scrollTo(0, 0);
         },
         resTab: function (v) { S.res.tab = v; },
         comTab: function (v) { S.com.tab = v; },
         opTab: function (v) { S.op.tab = v; S.op.station = null; },
-        toOp: function () { S.view = 'op'; S.op.tab = 'stations'; S.op.station = null; window.scrollTo(0, 0); },
-        toCom: function () { S.view = 'com'; S.com.tab = 'charger'; window.scrollTo(0, 0); },
+        
+        toOp: function () {
+            S.modal = { type: 'pwd', error: false };
+        },
+        confirmPwd: function() {
+            var pwd = document.getElementById('op-pwd-input').value;
+            if (pwd === "0000") {
+                S.modal = null;
+                S.view = 'op'; S.op.tab = 'stations'; S.op.station = null; window.scrollTo(0, 0); 
+                render();
+            } else {
+                S.modal.error = true;
+                render();
+            }
+        },
+        saveModal: function() {
+            if (S.modal && S.modal.type === 'cfg' && S.modal.key === 'cfg_tariff') {
+                var el = document.getElementById('tariff-input');
+                if (el) {
+                    var val = parseFloat(el.value.replace(',', '.'));
+                    if (!isNaN(val)) S.com.tariff = val;
+                }
+            }
+            S.modal = null;
+            render();
+        },
+        
+        toCom: function () { S.view = 'com'; S.com.step = 'station'; S.com.tab = 'charger'; window.scrollTo(0, 0); },
 
+        // Ações Residenciais
         connect: function () {
-            if (!S.online) { alert('Carregador offline. Conecte à rede para acessar funções inteligentes.'); return; }
+            if (!S.online) { S.modal = { type: 'offline_err' }; return; }
             S.res.v = 'connecting';
             render();
             setTimeout(function () { S.res.v = 'connected'; render(); }, 1300);
@@ -455,21 +647,26 @@
             if (isConfigured && (!S.res.sched.d[day] || !inWindow)) {
                 S.res.v = 'scheduled'; 
             } else {
-                S.res.v = 'charging';
-                var activeProf = S.res.profiles[S.res.activeProfileIdx];
-                if (activeProf && activeProf.rawLimit && activeProf.rawLimit !== 'auto') {
-                    S.res.limit = parseInt(activeProf.rawLimit);
-                    S.res.load = false; 
-                }
+                A.resForceStart();
             }
         },
         resForceStart: function () { 
-            S.res.v = 'charging'; 
-            var activeProf = S.res.profiles[S.res.activeProfileIdx];
-            if (activeProf && activeProf.rawLimit && activeProf.rawLimit !== 'auto') {
-                S.res.limit = parseInt(activeProf.rawLimit);
+            var aP = S.res.profiles[S.res.activeProfileIdx];
+            var reqLimit = S.res.limit;
+            
+            if (aP && aP.rawLimit && aP.rawLimit !== 'auto') {
+                reqLimit = parseInt(aP.rawLimit);
                 S.res.load = false; 
             }
+            
+            if (reqLimit > S.res.maxLocalLimit) {
+                S.modal = { type: 'power_err', maxLimit: S.res.maxLocalLimit };
+                reqLimit = S.res.maxLocalLimit;
+            }
+            
+            S.res.limit = reqLimit;
+            S.res.power = (reqLimit * 220) / 1000;
+            S.res.v = 'charging'; 
         }, 
         resPause: function () { S.res.v = 'paused'; },
         resResume: function () { S.res.v = 'charging'; },
@@ -482,10 +679,24 @@
         day: function (i) { S.res.sched.d[+i] = S.res.sched.d[+i] ? 0 : 1; },
         speed: function (v) { S.speed = parseFloat(v); },
 
+        // Ações Comerciais e MQTT
+        selComStation: function(id) {
+            var st = S.stations.find(function(x){ return x.id === +id; });
+            if(st && st.status === 'charging') {
+                S.modal = { type: 'in_use', stId: id };
+                return;
+            }
+            S.com.selStation = id;
+            S.com.step = 'idle';
+            
+            if(st && st.maxPowerLimit) {
+                S.com.max = st.maxPowerLimit;
+                S.com.sel = Math.min(S.com.sel, S.com.max);
+            }
+        },
         auth: function (m) {
             if (!S.online && (m === 'app' || m === 'qr')) { 
-                alert('Carregador offline. Conecte à rede primeiro para usar o celular.'); 
-                return; 
+                S.modal = { type: 'offline_err' }; return; 
             }
             
             S.com.method = m;
@@ -515,14 +726,19 @@
             
             render();
             setTimeout(function () {
-                S.com.step = 'ident'; S.com.user = 'João Silva'; S.com.target = 100; S.com.car = 'Cartão RFID'; render();
+                S.com.step = 'ident'; S.com.user = 'Visitante RFID'; S.com.target = 100; S.com.car = 'Cartão Local'; render();
             }, 1700);
         },
-
         toPower: function () { S.com.step = 'power'; },
         selPower: function (v) { if (+v <= S.com.max) S.com.sel = +v; },
         comStart: function () {
             var c = S.com;
+            
+            if (c.sel > c.max) {
+                S.modal = { type: 'power_err', maxLimit: c.max };
+                c.sel = c.max;
+            }
+            
             c.power = c.sel;
             c.step = 'charging';
             c.batt = Math.min(20, Math.max(0, c.target - 5)); 
@@ -532,18 +748,32 @@
         comResume: function () { S.com.step = 'charging'; },
         comStop: function () {
             S.com.step = 'done';
+            
+            var existing = USERS.find(function(u) { return u.n === S.com.user; });
+            if (existing) {
+                existing.s++;
+            } else {
+                USERS.unshift({
+                    n: S.com.user || 'Desconhecido',
+                    rfid: S.com.method === 'app' ? 'App' : (S.com.method === 'qr' ? 'QR' : '****' + Math.floor(1000 + Math.random() * 9000)),
+                    pay: 'Visa ••••1234',
+                    s: 1
+                });
+            }
+
             if (typeof mqttClient !== 'undefined' && mqttClient.connected && S.com.appCodeStr) {
                 mqttClient.publish('goodwe_hmi/session/' + S.com.appCodeStr + '/to_app', JSON.stringify({ action: 'ended' }));
             }
         },
         comNew: function () {
             var c = S.com;
-            c.step = 'idle'; c.method = null; c.user = null; c.batt = 64; c.target = 100;
+            c.step = 'station'; c.selStation = null; c.method = null; c.user = null; c.batt = 64; c.target = 100;
             c.energy = 0; c.sec = 0; c.cost = 0; c.err = false; S.com.appCodeStr = '';
             render();
         },
         comRetry: function () { S.com.err = false; S.com.step = 'idle'; S.com.tab = 'charger'; },
 
+        // Ações do Operador e Demonstração
         toggleNet: function () {
             if (S.online) { S.online = false; render(); return; }
             S.sync = 1; render();
@@ -574,12 +804,20 @@
                 render();
             }
         },
+        callMaint: function() { 
+            S.reports.errors.push({id: 'M-' + Math.floor(100+Math.random()*900), st: S.op.station, msg: 'Solicitação Manual Operador', level: 'Alto', res: false});
+            S.modal = { type: 'maint_call' };
+        },
+        resvErr: function(idx) {
+            S.reports.errors[idx].res = true;
+            render();
+        },
         openCfg: function (k) { S.modal = { type: 'cfg', key: k }; },
-        closeModal: function () { S.modal = null; },
+        closeModal: function () { S.modal = null; render(); },
         demoT: function () { S.demo = !S.demo; },
 
         resSyncStart: function() {
-            if (!S.online) { alert('Carregador offline. Conecte à rede primeiro.'); return; }
+            if (!S.online) { S.modal = { type: 'offline_err' }; return; }
             S.res.syncCode = 'RES-' + Math.floor(1000 + Math.random() * 9000).toString();
             S.res.v = 'sync_auth';
             if (typeof mqttClient !== 'undefined' && mqttClient.connected) {
@@ -608,43 +846,30 @@
         },
 
         dm: function (k) {
-            var c = S.com, r = S.res;
             switch (k) {
                 case 'net': A.toggleNet(); S.demo = false; return;
-                case 'vconn': S.view = 'res'; S.res.tab = 'charger'; r.v = 'connected'; break;
-                case 'vdis': S.view = 'res'; S.res.tab = 'charger'; r.v = 'idle'; r.batt = 42; r.energy = 0; r.sec = 0; break;
+                case 'vconn': S.view = 'res'; S.res.tab = 'charger'; S.res.v = 'connected'; break;
+                case 'vdis': S.view = 'res'; S.res.tab = 'charger'; S.res.v = 'idle'; break;
                 case 'charge':
-                    if (S.view === 'com') { c.step = 'charging'; c.user = c.user || 'João Silva'; c.tab = 'charger'; }
-                    else { S.view = 'res'; S.res.tab = 'charger'; if (r.v === 'idle') r.v = 'connected'; r.v = 'charging'; }
+                    if (S.view === 'com') { S.com.step = 'charging'; S.com.user = S.com.user || 'João Silva'; S.com.tab = 'charger'; }
+                    else { S.view = 'res'; S.res.tab = 'charger'; S.res.v = 'charging'; }
                     break;
                 case 'pause':
-                    if (S.view === 'com') c.step = 'paused'; else r.v = 'paused'; break;
+                    if (S.view === 'com') S.com.step = 'paused'; else S.res.v = 'paused'; break;
                 case 'finish':
-                    if (S.view === 'com') { c.step = 'done'; } else { r.v = 'done'; r.batt = r.target; } break;
-                case 'error': S.view = 'com'; S.com.tab = 'error'; S.com.err = true; break;
-                case 'b20': r.batt = 20; c.batt = 20; break;
-                case 'b42': r.batt = 42; c.batt = 42; break;
-                case 'b63': r.batt = 63; c.batt = 63; break;
-                case 'b90': r.batt = 90; c.batt = 90; break;
-                case 'rfid': S.view = 'com'; c.tab = 'charger'; c.step = 'ident'; c.method = 'rfid'; c.user = 'João Silva'; break;
+                    if (S.view === 'com') { S.com.step = 'done'; } else { S.res.v = 'done'; S.res.batt = S.res.target; } break;
+                case 'error': S.view = 'com'; S.com.step = 'error'; S.com.err = true; break;
+                case 'b20': S.res.batt = 20; S.com.batt = 20; break;
+                case 'b42': S.res.batt = 42; S.com.batt = 42; break;
+                case 'b63': S.res.batt = 63; S.com.batt = 63; break;
+                case 'b90': S.res.batt = 90; S.com.batt = 90; break;
+                case 'rfid': S.view = 'com'; S.com.tab = 'charger'; S.com.step = 'ident'; S.com.method = 'rfid'; S.com.user = 'João Silva'; break;
                 case 'high': S.view = 'op'; S.op.tab = 'ops'; S.op.station = null; S.siteLimit = 280; break;
                 case 'norm': S.view = 'op'; S.op.tab = 'ops'; S.op.station = null; S.siteLimit = 300; break;
                 case 'st3': S.view = 'op'; S.op.tab = 'stations'; S.op.station = 3; break;
                 case 'solar': S.solar.connected = !S.solar.connected; break;
                 case 'reset':
-                    S.speed = 1;
-                    S.res = {
-                        tab: 'charger', v: 'idle', batt: 42, target: 80, power: 10.8, energy: 0, sec: 0,
-                        limit: 32, lock: false, load: true, timer: null, syncCode: '', activeProfileIdx: 0,
-                        sched: { s: '22:00', e: '06:00', t: 80, d: [1, 1, 1, 1, 1, 0, 0] },
-                        profiles: S.res.profiles
-                    };
-                    S.com = {
-                        tab: 'charger', step: 'idle', method: null, user: null, batt: 64, target: 100, mode: 'Livre',
-                        car: 'Desconhecido', energy: 0, sec: 0, power: 18.4, sel: 22, max: 22, tariff: 1.89, cost: 0, err: false, appCodeStr: ''
-                    };
-                    S.op = { tab: 'stations', station: null };
-                    S.siteLimit = 300; S.online = true; S.sync = 0; S.view = 'landing'; S.solar.connected = false;
+                    location.reload(); 
                     break;
             }
             S.demo = false;
@@ -663,7 +888,7 @@
             S.animateNext = true;
         }
         fn(el.dataset.v);
-        render();
+        render(); // <--- RENDERIZAÇÃO ESTAVA FALTANDO AQUI
     });
 
     document.addEventListener('input', function (e) {
@@ -691,6 +916,7 @@
     });
 
     /* =============== GERADORES DE UI (COMPONETIZAÇÃO) =============== */
+    
     function topbar() {
         var right = '<div class="lang">' + ['pt', 'en', 'es'].map(function (l) {
             return '<button class="' + (S.lang === l ? 'on' : '') + '" data-a="lang" data-v="' + l + '">' + l.toUpperCase() + '</button>';
@@ -724,7 +950,7 @@
     }
 
     function subbarCom() {
-        return '<div class="subbar"><span class="ctx-label">' + ic('zap') + 'STATION 04 <span class="sub">· ' + t('commercial') + '</span></span>' +
+        return '<div class="subbar"><span class="ctx-label">' + ic('zap') + 'STATION ' + (S.com.selStation ? pad(S.com.selStation) : '??') + ' <span class="sub">· ' + t('commercial') + '</span></span>' +
             '<div class="subbar-right"><span>' + (S.online ? t('cloud_local') : 'LOCAL') + '</span>' +
             '<button class="btn-opaccess" data-a="toOp">' + ic('shield') + t('op_access') + '</button></div></div>';
     }
@@ -996,6 +1222,7 @@
             '</div></div>';
     }
 
+    /* ================== COMERCIAL ================== */
     function vCom() {
         var body = S.com.tab === 'error' ? comError() : comCharger();
         return subbarCom() + '<div class="page ' + (S.animateNext ? 'fade' : '') + '">' + body + '</div>';
@@ -1004,11 +1231,23 @@
     function comCharger() {
         var c = S.com;
         
+        if (c.step === 'station') {
+            return '<div class="wrap-sm center">' +
+                logo('logo-md logo-glow') + '<div style="height:12px"></div>' +
+                '<div class="eyebrow-c">' + t('COMERCIAL') + '</div>' +
+                '<h1 class="state-title" style="margin-top:22px">Selecione uma Estação</h1>' +
+                '<div class="st-grid" style="margin-top:40px;">' + S.stations.map(function(s){
+                    return '<button class="st s-' + s.status + '" data-a="selComStation" data-v="' + s.id + '" '+(s.status==='maintenance'||s.status==='error'?'disabled style="opacity:0.5"':'')+'>' +
+                        '<div class="row1"><span class="id">STATION ' + pad(s.id) + '</span><span class="dot"></span></div>' +
+                        '<div class="status">' + statusText(s.status) + '</div></button>';
+                }).join('') + '</div></div>';
+        }
+
         if (c.step === 'idle') {
             return '<div class="wrap-sm center">' +
                 logo('logo-md logo-glow') + '<div style="height:12px"></div>' +
                 '<div class="eyebrow-c">' + t('COMERCIAL') + '</div>' +
-                '<span class="pill pill-mode" style="font-size:13px;padding:8px 18px">STATION 04</span>' +
+                '<span class="pill pill-mode" style="font-size:13px;padding:8px 18px" data-a="comNew">STATION ' + pad(c.selStation) + ' (Trocar)</span>' +
                 '<h1 class="state-title" style="margin-top:22px">' + t('ready') + '</h1>' +
                 '<div class="avail">' + ic('zap') + '<b>22 kW</b> ' + t('available') + '</div>' +
                 '<div class="label-sm">' + t('auth_method') + '</div>' +
@@ -1028,20 +1267,19 @@
                 return '<div class="wrap-sm center fade">' +
                     '<div style="margin:40px auto 30px; font-size:52px; font-weight:900; letter-spacing:12px; color:var(--red); font-variant-numeric: tabular-nums; text-shadow: 0 0 30px rgba(255,0,0,0.4);">' + c.appCodeStr + '</div>' +
                     '<h2 style="margin:0;font-size:22px;font-weight:700;color:var(--text-0)">' + t('type_app') + '</h2>' +
-                    '<div style="margin-top:8px;color:var(--text-1);font-size:14px">' + t('type_app_sub') + '</div>' +
+                    '<div style="margin-top:8px;color:var(--text-1);font-size:14px">Para vincular a STATION '+pad(c.selStation)+'</div>' +
                     '<div class="btn-row" style="margin-top: 40px;"><button class="btn" data-a="comNew">Cancelar</button></div></div>';
             } else {
                 return '<div class="wrap-sm center fade">' +
                     '<div class="scan">' + ic('card') + '<div class="scan-line"></div></div>' +
                     '<h2 style="margin:30px 0 0;font-size:24px;font-weight:700;color:var(--red)">' + t('detecting') + '</h2>' +
-                    '<div style="margin-top:8px;color:var(--text-1);font-size:14px">RFID · STATION 04</div>' +
+                    '<div style="margin-top:8px;color:var(--text-1);font-size:14px">RFID · STATION '+pad(c.selStation)+'</div>' +
                     '<div class="btn-row" style="margin-top: 40px;"><button class="btn" data-a="comNew">Cancelar</button></div></div>';
             }
         }
         
         if (c.step === 'ident') {
-            var detectMsg = t('rfid_detected');
-            if (c.method === 'qr' || c.method === 'app') detectMsg = "Perfil Conectado com Sucesso";
+            var detectMsg = (c.method === 'qr' || c.method === 'app') ? "Perfil Conectado com Sucesso" : "RFID Detectado";
 
             return '<div class="wrap-sm center fade">' +
                 '<div><span class="vstate ok">' + ic('check') + detectMsg + '</span></div>' +
@@ -1050,7 +1288,7 @@
                 '<div class="info-row"><span class="k">Veículo</span><span class="v">' + c.car + '</span></div>' +
                 '<div class="info-row"><span class="k">Modo Solicitado</span><span class="v">' + c.mode + '</span></div>' +
                 '<div class="info-row"><span class="k">Limite Alvo</span><span class="v red">' + c.target + '%</span></div>' +
-                '<div class="info-row"><span class="k">Potência do Carregador</span><span class="v">22 kW</span></div>' +
+                '<div class="info-row"><span class="k">Potência do Carregador</span><span class="v">' + c.max + ' kW</span></div>' +
                 '</div>' +
                 '<div class="btn-row"><button class="btn btn-red" data-a="toPower">' + ic('arrow') + t('start_charge') + '</button></div></div>';
         }
@@ -1062,7 +1300,7 @@
                     return '<button class="pw ' + (c.sel === p ? 'on' : '') + '" ' + (p > c.max ? 'disabled' : '') +
                         ' data-a="selPower" data-v="' + p + '">' + p + ' kW</button>';
                 }).join('') + '</div>' +
-                '<div><span class="note-sm">' + ic('lock') + t('power_limit_note') + '</span></div>' +
+                '<div><span class="note-sm">' + ic('lock') + t('power_limit_note') + ' Máximo: '+c.max+' kW.</span></div>' +
                 '<div class="btn-row"><button class="btn btn-red" data-a="comStart">' + ic('play') + 'Confirmar & Iniciar</button></div></div>';
         }
         
@@ -1073,7 +1311,7 @@
             var rem = (c.power > 0) ? (kwhNeeded / c.power) * 3600 : 0;
             return '<div class="wrap-sm center">' +
                 '<div><span class="vstate" style="color:var(--red)">' + ic('zap') +
-                '<span style="letter-spacing:2px;font-weight:700">' + (on ? t('charging') : t('paused')) + ' · STATION 04</span></span></div>' +
+                '<span style="letter-spacing:2px;font-weight:700">' + (on ? t('charging') : t('paused')) + ' · STATION '+pad(c.selStation)+'</span></span></div>' +
                 '<div class="ring-box">' + ring(c.batt, 'var(--red)', 260, 10, 'com-ring-circ') +
                 '<div class="inner"><div class="pct" id="com-pct">' + Math.round(c.batt) + '%</div>' +
                 '<div class="cap">META ' + c.target + '%</div></div></div>' +
@@ -1096,7 +1334,7 @@
         // done
         return '<div class="wrap-sm center">' +
             '<div><span class="vstate ok">' + ic('check') +
-            '<span style="letter-spacing:2px;font-weight:700">' + t('completed') + ' · STATION 04</span></span></div>' +
+            '<span style="letter-spacing:2px;font-weight:700">' + t('completed') + ' · STATION '+pad(c.selStation)+'</span></span></div>' +
             '<div class="ring-box">' + ring(c.batt, 'var(--green)') +
             '<div class="inner"><div class="pct green">' + Math.round(c.batt) + '%</div>' +
             '<div class="cap">' + brl(c.cost) + '</div></div></div>' +
@@ -1121,7 +1359,7 @@
             '<div style="color:var(--red);display:flex;justify-content:center">' +
             '<span style="width:64px;height:64px;border-radius:50%;background:var(--red-dim);border:1px solid rgba(255,0,0,.4);display:flex;align-items:center;justify-content:center">' +
             ic('alert') + '</span></div>' +
-            '<div class="eyebrow-c" style="margin-top:22px">STATION 03</div>' +
+            '<div class="eyebrow-c" style="margin-top:22px">STATION '+pad(S.com.selStation)+'</div>' +
             '<h1 class="state-title">' + t('err_title') + '</h1>' +
             '<div class="btn-row" style="flex-direction:column;align-items:center">' +
             '<button class="btn btn-red" style="min-width:290px" data-a="comRetry">' + ic('refresh') + t('try_again') + '</button>' +
@@ -1130,7 +1368,7 @@
             '</div></div>';
     }
 
-    /* =============== FUNÇÕES DO OPERADOR =============== */
+    /* ================== OPERADOR E MODAIS ================== */
     function vOp() {
         var body;
         if (S.op.station) body = opStation();
@@ -1183,44 +1421,39 @@
         } else if (s.status === 'error') {
             left = '<div class="det-card pad center">' +
                 '<div style="color:var(--red);display:flex;justify-content:center;margin-bottom:14px">' + ic('alert') + '</div>' +
-                '<h3 style="margin:0 0 6px;color:var(--red);font-size:20px">' + t('err_title') + '</h3>' +
+                '<h3 style="margin:0 0 6px;color:var(--red);font-size:20px">Erro na Estação</h3>' +
                 '<p style="color:var(--text-2);font-size:13px;margin:0 0 20px">CP-ERR-0142 · ISO 15118 handshake timeout</p>' +
                 '<div class="btn-row" style="margin-top:0;flex-direction:column;align-items:stretch">' +
-                '<button class="btn btn-red btn-sm" data-a="opBack">' + ic('refresh') + t('try_again') + '</button>' +
-                '<button class="btn btn-sm" data-a="opBack">' + ic('activity') + t('local_diag') + '</button></div></div>';
+                '<button class="btn btn-red btn-sm" data-a="opBack">' + ic('refresh') + 'Tentar novamente</button>' +
+                '<button class="btn btn-sm" data-a="opBack">' + ic('activity') + 'Diagnóstico local</button></div></div>';
         } else if (s.status === 'maintenance') {
             left = '<div class="det-card pad">' +
                 '<h3 style="margin:0 0 10px;color:var(--orange);font-size:20px">' + statusText(s.status) + '</h3>' +
-                '<p style="color:var(--text-1);font-size:14px;margin:0">' +
-                (S.lang === 'pt' ? 'Estação bloqueada para manutenção programada pela equipe técnica.' :
-                    S.lang === 'es' ? 'Estación bloqueada por mantenimiento programado del equipo técnico.' :
-                        'Station locked for scheduled maintenance by the technical team.') + '</p></div>';
+                '<p style="color:var(--text-1);font-size:14px;margin:0">Estação bloqueada para manutenção programada pela equipe técnica.</p></div>';
         } else {
             left = '<div class="det-card pad">' +
                 '<h3 style="margin:0 0 10px;color:var(--green);font-size:20px">' + statusText(s.status) + '</h3>' +
-                '<p style="color:var(--text-1);font-size:14px;margin:0">' +
-                (S.lang === 'pt' ? 'Pronta para uma nova sessão de carregamento.' :
-                    S.lang === 'es' ? 'Lista para una nueva sesión de carga.' : 'Ready for a new charging session.') + '</p></div>';
+                '<p style="color:var(--text-1);font-size:14px;margin:0">Pronta para uma nova sessão de carregamento.</p></div>';
         }
         
-        left += '<div class="det-card pad" style="margin-top:16px;"><h4>' + (S.lang==='pt'?'Forçar Status da Estação':'Force Station Status') + '</h4>' +
+        left += '<div class="det-card pad" style="margin-top:16px;"><h4>Forçar Status da Estação</h4>' +
                 '<div class="opt-row">' +
-                '<button class="opt ' + (s.status === 'available' ? 'on' : '') + '" data-a="forceStatus" data-v="available">' + statusText('available') + '</button>' +
-                '<button class="opt ' + (s.status === 'maintenance' ? 'on' : '') + '" data-a="forceStatus" data-v="maintenance">' + statusText('maintenance') + '</button>' +
-                '<button class="opt ' + (s.status === 'error' ? 'on' : '') + '" data-a="forceStatus" data-v="error">' + statusText('error') + '</button>' +
+                '<button class="opt ' + (s.status === 'available' ? 'on' : '') + '" data-a="forceStatus" data-v="available">Disponível</button>' +
+                '<button class="opt ' + (s.status === 'maintenance' ? 'on' : '') + '" data-a="forceStatus" data-v="maintenance">Manutenção</button>' +
+                '<button class="opt ' + (s.status === 'error' ? 'on' : '') + '" data-a="forceStatus" data-v="error">Erro</button>' +
                 '</div></div>';
 
         return '<div class="wrap">' +
-            '<button class="back-btn" data-a="opBack">' + ic('arrowleft') + t('nav_stations') + '</button>' +
+            '<button class="back-btn" data-a="opBack">' + ic('arrowleft') + 'Estações</button>' +
             '<div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px">' +
             '<h2 style="margin:0;font-size:26px;font-weight:800">STATION ' + pad(s.id) + '</h2>' +
             '<span class="pill" style="color:' + col + ';border-color:' + col + '55;font-weight:700;letter-spacing:1px">' + statusText(s.status) + '</span></div>' +
             '<div class="det-grid">' + left +
-            '<div class="det-card pad"><h4>' + t('settings') + '</h4>' +
-            swRow(t('load_mgmt'), s.opts.load, 'opToggle', 'load') +
+            '<div class="det-card pad"><h4>Configurações</h4>' +
+            swRow('Gestão de carga', s.opts.load, 'opToggle', 'load') +
             swRow('RFID', s.opts.rfid, 'opToggle', 'rfid') +
-            swRow(t('nav_reports'), s.opts.rep, 'opToggle', 'rep') +
-            '<div class="modal-lock" style="margin-top:16px">' + ic('lock') + t('restricted') + '</div></div>' +
+            swRow('Relatórios', s.opts.rep, 'opToggle', 'rep') +
+            '<div class="modal-lock" style="margin-top:16px">' + ic('lock') + 'Apenas Operador</div></div>' +
             '</div></div>';
     }
 
@@ -1234,9 +1467,9 @@
 
     function opUsers() {
         return '<div class="wrap">' +
-            '<div class="sec-head">' + ic('users') + '<h2>' + t('users') + '</h2></div>' +
+            '<div class="sec-head">' + ic('users') + '<h2>Usuários (Histórico)</h2></div>' +
             '<div class="list-card tbl-scroll"><table class="tbl"><thead><tr>' +
-            '<th>' + t('user') + '</th><th>' + t('rfid_card') + '</th><th>' + t('paymentU') + '</th><th>' + t('sessions') + '</th>' +
+            '<th>USUÁRIO</th><th>AUTENTICAÇÃO</th><th>PAGAMENTO</th><th>SESSÕES</th>' +
             '</tr></thead><tbody>' + USERS.map(function (u) {
                 return '<tr><td><span class="u-cell"><span class="avatar">' + u.n.charAt(0) + '</span>' +
                     '<span class="u-name">' + u.n + '</span></span></td>' +
@@ -1256,23 +1489,18 @@
         var maxP = Math.max.apply(null, ch.map(function (s) { return s.power; }));
         
         return '<div class="wrap">' +
-            '<div class="sec-head">' + ic('gauge') + '<h2>' + t('load_title') + '</h2></div>' +
+            '<div class="sec-head">' + ic('gauge') + '<h2>Gestão de carga</h2></div>' +
             '<div class="load-cards">' +
-            '<div class="load-card"><div class="lbl">' + t('site_limit') + '</div><div class="big">' + S.siteLimit + ' kW</div>' +
-            '<input type="range" min="120" max="400" step="10" value="' + S.siteLimit + '" data-b="site" aria-label="' + t('site_limit') + '"></div>' +
-            '<div class="load-card"><div class="lbl">' + t('cur_demand') + '</div>' +
-            '<div class="big" style="' + (over ? 'color:var(--orange)' : '') + '">' + demand.toFixed(1) + ' kW</div>' +
+            '<div class="load-card"><div class="lbl">LIMITE DE POTÊNCIA DO SITE</div><div class="big">' + S.siteLimit + ' kW</div>' +
+            '<input type="range" min="120" max="400" step="10" value="' + S.siteLimit + '" data-b="site" aria-label="Limite"></div>' +
+            '<div class="load-card"><div class="lbl">DEMANDA ATUAL</div><div class="big" style="' + (over ? 'color:var(--orange)' : '') + '">' + demand.toFixed(1) + ' kW</div>' +
             '<div class="demand-track"><div class="demand-fill ' + (over ? 'over' : '') + '" style="width:' + pct + '%"></div></div></div>' +
-            '<div class="load-card ok"><div class="lbl">' + t('lm_state') + '</div>' +
-            '<div class="big">' + ic('gauge') + t('active') + '</div>' +
+            '<div class="load-card ok"><div class="lbl">ESTADO GESTÃO</div>' +
+            '<div class="big">' + ic('gauge') + 'Ativo</div>' +
             '<div style="margin-top:10px;font-size:12px;color:var(--text-1)">' +
-            (over ? (S.lang === 'pt' ? 'Reduzindo potência das estações para respeitar o limite.' :
-                S.lang === 'es' ? 'Reduciendo potencia de las estaciones para respetar el límite.' :
-                    'Reducing station power to respect the limit.')
-                : (S.lang === 'pt' ? 'Demanda dentro do limite do site.' :
-                    S.lang === 'es' ? 'Demanda dentro del límite del sitio.' : 'Demand within site limit.')) + '</div></div>' +
+            (over ? 'Reduzindo potência das estações para respeitar o limite.' : 'Demanda dentro do limite do site.') + '</div></div>' +
             '</div>' +
-            '<div class="bars-card"><div class="bars-head">' + t('st_charging') + ' · ' + ch.length + (over ? ' · ' + (S.lang === 'pt' ? 'POTÊNCIA LIMITADA PELO SITE' : S.lang === 'es' ? 'POTENCIA LIMITADA POR EL SITIO' : 'POWER CAPPED BY SITE LIMIT') : '') + '</div>' +
+            '<div class="bars-card"><div class="bars-head">ESTAÇÕES CARREGANDO · ' + ch.length + (over ? ' · POTÊNCIA LIMITADA PELO SITE' : '') + '</div>' +
             ch.map(function (s) {
                 var eff = +(s.power * k).toFixed(1);
                 var w = eff / maxP * 100;
@@ -1325,7 +1553,12 @@
     }
 
     function opReports() {
-        var D = t('days');
+        var errsHTML = S.reports.errors.map(function(e, i) {
+            return '<div class="list-row"><div><div class="main" style="color:'+(e.res?'var(--green)':'var(--red)')+'">'+e.id+' - Station '+pad(e.st)+'</div><div class="sub">'+e.msg+' ('+e.level+')</div></div>'+
+                   (e.res ? '<span class="side" style="color:var(--green)">Resolvido</span>' : '<button class="btn btn-sm" data-a="resvErr" data-v="'+i+'">Marcar Resolvido</button>') + '</div>';
+        }).join('');
+
+        var D = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'];
         var energy = [140, 163, 134, 190, 220, 268, 196];
         var sessions = [38, 44, 35, 50, 61, 71, 55];
         var revenue = [266, 310, 255, 360, 428, 508, 372];
@@ -1338,120 +1571,163 @@
         }
         
         return '<div class="wrap">' +
-            '<div class="sec-head">' + ic('chart') + '<h2>' + t('reports') + '</h2></div>' +
+            '<div class="sec-head">' + ic('chart') + '<h2>Relatórios e Operações</h2></div>' +
+            
+            '<div class="list-card" style="margin-bottom:24px"><div class="bars-head">ERROS E CHAMADOS ATIVOS</div>'+
+            (errsHTML || '<div style="padding:20px;text-align:center;color:var(--text-2)">Nenhum erro ativo no momento.</div>') +
+            '</div>'+
+
             '<div class="rep-cards">' +
-            rc('zap', t('r_energy'), '1,32 MWh', t('this_week'), 'var(--red)') +
-            rc('chart', t('r_sessions'), '355', t('this_week'), 'var(--text-0)') +
-            rc('dollar', t('r_cost'), 'R$ 2.502', t('est_revenue'), 'var(--green)') +
+            rc('zap', 'ENERGIA', '1,32 MWh', 'esta semana', 'var(--red)') +
+            rc('chart', 'SESSÕES', '355', 'esta semana', 'var(--text-0)') +
+            rc('dollar', 'CUSTO', 'R$ 2.502', 'receita estimada', 'var(--green)') +
             '</div>' +
             '<div class="chart-grid">' +
-            '<div class="chart-card"><h4>' + t('ch_energy') + '</h4>' + barChart(energy, D, '#FF0000') + '</div>' +
-            '<div class="chart-card"><h4>' + t('ch_sessions') + '</h4>' + lineChart(sessions, D, '#FF0000', 80, true) + '</div>' +
+            '<div class="chart-card"><h4>Energia · kWh / dia</h4>' + barChart(energy, D, '#FF0000') + '</div>' +
+            '<div class="chart-card"><h4>Sessões / dia</h4>' + lineChart(sessions, D, '#FF0000', 80, true) + '</div>' +
             '</div>' +
-            '<div class="chart-card"><h4>' + t('ch_revenue') + '</h4>' + lineChart(revenue, D, '#25d366', 600, false, true) + '</div></div>';
+            '<div class="chart-card"><h4>Receita estimada · R$</h4>' + lineChart(revenue, D, '#25d366', 600, false, true) + '</div></div>';
     }
 
     var CFG = [
-        ['cfg_users', 'users'], ['cfg_rfid', 'card'], ['cfg_pay', 'wallet'], ['cfg_tariff', 'dollar'], ['cfg_limits', 'gauge'],
-        ['cfg_load', 'zap'], ['cfg_sched', 'calendar'], ['cfg_rep', 'chart'], ['cfg_energy', 'activity'], ['cfg_maint', 'wrench'],
-        ['cfg_diag', 'gauge'], ['cfg_net', 'wifi'], ['cfg_fw', 'chip'], ['cfg_int', 'link'], ['cfg_adm', 'shield']
+        ['cfg_users', 'users', 'Usuários'], ['cfg_rfid', 'card', 'RFID'], ['cfg_pay', 'wallet', 'Pagamentos'], ['cfg_tariff', 'dollar', 'Tarifas'], ['cfg_limits', 'gauge', 'Limites de potência'],
+        ['cfg_load', 'zap', 'Gestão de carga'], ['cfg_sched', 'calendar', 'Agendamento'], ['cfg_maint', 'wrench', 'Manutenção'], ['cfg_diag', 'gauge', 'Diagnósticos'], ['cfg_net', 'wifi', 'Rede'],
+        ['cfg_fw', 'chip', 'Firmware'], ['cfg_int', 'link', 'Integrações'], ['cfg_adm', 'shield', 'Administração']
     ];
 
     function opCfg() {
         return '<div class="wrap">' +
-            '<div class="sec-head">' + ic('settings') + '<h2>' + t('settings') + '</h2></div>' +
+            '<div class="sec-head">' + ic('settings') + '<h2>Configurações</h2></div>' +
             '<div class="cfg-grid">' + CFG.map(function (c) {
-                return '<button class="cfg" data-a="openCfg" data-v="' + c[0] + '">' + ic(c[1]) + '<div class="nm">' + t(c[0]) + '</div></button>';
+                return '<button class="cfg" data-a="openCfg" data-v="' + c[0] + '">' + ic(c[1]) + '<div class="nm">' + c[2] + '</div></button>';
             }).join('') + '</div></div>';
     }
 
-    function cfgRows(key) {
-        switch (key) {
-            case 'cfg_users': return USERS.map(function (u) { return [u.n, 'Personal']; });
-            case 'cfg_rfid': return USERS.map(function (u) { return [u.n, u.rfid]; });
-            case 'cfg_pay': return USERS.map(function (u) { return [u.n, u.pay]; });
-            case 'cfg_tariff': return [
-                [(S.lang === 'pt' ? 'Ponta 18:00–21:00' : S.lang === 'es' ? 'Punta 18:00–21:00' : 'Peak 18:00–21:00'), 'R$ 2,49 / kWh'],
-                [(S.lang === 'pt' ? 'Intermediária' : S.lang === 'es' ? 'Intermedia' : 'Shoulder'), 'R$ 1,89 / kWh'],
-                [(S.lang === 'pt' ? 'Fora de ponta' : S.lang === 'es' ? 'Fuera de punta' : 'Off-peak'), 'R$ 1,32 / kWh']
-            ];
-            case 'cfg_limits': return S.stations.slice(0, 6).map(function (s) { return ['STATION ' + pad(s.id), (s.id % 3 === 0 ? 22 : s.id % 2 === 0 ? 11 : 7.4) + ' kW max']; });
-            case 'cfg_load': return [
-                [t('site_limit'), S.siteLimit + ' kW'],
-                ['Fallback', (S.lang === 'pt' ? 'Local (offline)' : 'Local (offline)')],
-                [(S.lang === 'pt' ? 'Prioridade' : S.lang === 'es' ? 'Prioridad' : 'Priority'), 'FIFO']
-            ];
-            case 'cfg_sched': return [
-                [(S.lang === 'pt' ? 'Janela noturna' : S.lang === 'es' ? 'Ventana nocturna' : 'Night window'), '22:00 – 06:00'],
-                [(S.lang === 'pt' ? 'Dias' : S.lang === 'es' ? 'Días' : 'Days'), t('days').slice(0, 5).join(' ')]
-            ];
-            case 'cfg_rep': return [[t('r_energy'), '1,32 MWh'], [t('r_sessions'), '355'], [t('r_cost'), 'R$ 2.502']];
-            case 'cfg_energy': return [
-                [(S.lang === 'pt' ? 'Consumo semanal' : 'Weekly consumption'), '1,32 MWh'],
-                [(S.lang === 'pt' ? 'Pico de demanda' : 'Peak demand'), '286,8 kW'],
-                [(S.lang === 'pt' ? 'Fator de carga' : 'Load factor'), '0,71']
-            ];
-            case 'cfg_maint': return [
-                ['STATION 05', (S.lang === 'pt' ? 'Manutenção programada' : 'Scheduled maintenance')],
-                ['STATION 03', (S.lang === 'pt' ? 'Chamado aberto' : 'Open ticket')]
-            ];
-            case 'cfg_diag': return [[t('d_power'), 'OK'], [t('d_temp'), '42 °C'], [t('d_veh'), 'ISO 15118'], [t('d_ctrl'), 'OK']];
-            case 'cfg_net': return [
-                ['4G/LTE', (S.lang === 'pt' ? 'Conectado' : S.lang === 'es' ? 'Conectado' : 'Connected')],
-                ['Ethernet', (S.lang === 'pt' ? 'Conectado' : S.lang === 'es' ? 'Conectado' : 'Connected')],
-                ['Wi-Fi', (S.lang === 'pt' ? 'Em espera' : S.lang === 'es' ? 'En espera' : 'Standby')]
-            ];
-            case 'cfg_fw': return [['HMI Core', 'v3.2.1'], ['Power Controller', 'v1.8.0'], ['Comms Module', 'v2.0.4 · OTA']];
-            case 'cfg_int': return [
-                ['OCPP 2.0.1', (S.lang === 'pt' ? 'Ativo' : S.lang === 'es' ? 'Activo' : 'Active')],
-                ['MODBUS TCP', (S.lang === 'pt' ? 'Ativo' : S.lang === 'es' ? 'Activo' : 'Active')],
-                ['SEMS Portal', (S.lang === 'pt' ? 'Conectado' : S.lang === 'es' ? 'Conectado' : 'Connected')]
-            ];
-            default: return [
-                [(S.lang === 'pt' ? 'Operadores' : S.lang === 'es' ? 'Operadores' : 'Operators'), '5'],
-                [(S.lang === 'pt' ? 'Organização' : S.lang === 'es' ? 'Organización' : 'Organization'), 'FIAP · Equipe 02'],
-                [(S.lang === 'pt' ? 'Fuso horário' : S.lang === 'es' ? 'Zona horaria' : 'Time zone'), 'America/Sao_Paulo']
-            ];
+    function renderCfgContent(key) {
+        if(key === 'cfg_users') {
+            return '<table class="tbl" style="margin:-20px -22px; width:calc(100% + 44px)"><tr><th>USUÁRIO</th><th>LOG</th><th>HORA</th></tr>' + USERS.slice(0,5).map(function(u){ return '<tr><td>'+u.n+'</td><td>App</td><td>Hoje 14:32</td></tr>';}).join('') + '</table>';
         }
+        if(key === 'cfg_rfid') {
+            return '<div class="sw-row" style="margin-bottom:20px"><span class="txt">Leitor RFID Global</span><button class="sw on"></button></div>' +
+                   '<table class="tbl" style="margin:0 -22px; width:calc(100% + 44px)"><tr><th>TAG</th><th>USUÁRIO</th></tr>' + USERS.slice(0,5).map(function(u){ return '<tr><td>'+u.rfid+'</td><td>'+u.n+'</td></tr>';}).join('') + '</table>';
+        }
+        if(key === 'cfg_tariff') {
+            return '<div class="field" style="margin-bottom:15px"><label>Tarifa Atual Global (R$/kWh)</label><input type="number" step="0.01" id="tariff-input" value="' + S.com.tariff + '" style="width:100%; background:#111; color:#fff; padding:10px; border:1px solid #333; border-radius:6px;"></div>' +
+                   '<button class="btn" style="width:100%" onclick="alert(\'Buscando dados...\\n\\nA média da tarifa para postos comerciais na sua região (São Paulo, Brasil) é de R$ 1,95 / kWh\')">Simular Tarifa da Região</button>';
+        }
+        if(key === 'cfg_maint') {
+            var m = S.stations.filter(function(s){return s.status === 'maintenance';});
+            var mlist = m.length ? m.map(function(s){return '<div class="info-row">STATION '+pad(s.id)+' <span style="color:var(--orange)">Em Manutenção</span></div>';}).join('') : '<div class="info-row">Nenhuma estação em manutenção.</div>';
+            return mlist + '<button class="btn btn-red" style="width:100%; margin-top:20px" data-a="callMaint">Chamar Assistência Técnica</button>';
+        }
+        
+        var rows = [];
+        if(key === 'cfg_pay') rows = [['Último Repasse', 'R$ 1.204,50'], ['Taxa Gateway', '2.5%']];
+        else if(key === 'cfg_limits') rows = [['Station 01', '22 kW'], ['Station 02', '11 kW']];
+        else if(key === 'cfg_load') rows = [['Fallback', 'Offline'], ['Prioridade', 'FIFO']];
+        else if(key === 'cfg_sched') rows = [['Janela Pública', '24h'], ['Dias', 'Todos']];
+        else if(key === 'cfg_diag') rows = [['Potência', 'OK'], ['Temp Média', '42 C'], ['Rede', 'OK']];
+        else if(key === 'cfg_net') rows = [['LTE', 'Conectado'], ['IP', '192.168.1.100']];
+        else if(key === 'cfg_fw') rows = [['Core', 'v3.2'], ['Status', 'Atualizado']];
+        else if(key === 'cfg_int') rows = [['OCPP', 'Conectado'], ['Modbus', 'Ativo']];
+        else if(key === 'cfg_adm') rows = [['Operadores', '2'], ['Logs', '1.4MB']];
+
+        return rows.map(function (r) { return infoRow(r[0], r[1]); }).join('');
     }
 
     function vModal() {
         if (!S.modal) return '';
-        var key = S.modal.key, icon = (CFG.filter(function (c) { return c[0] === key; })[0] || ['', 'settings'])[1];
+        
+        // Modal de Senha do Operador
+        if (S.modal.type === 'pwd') {
+            return '<div class="ov"><button class="ov-bg" data-a="closeModal"></button><div class="modal center">' +
+                '<div style="color:var(--red);margin-bottom:14px">' + ic('lock', 'logo-md') + '</div>' +
+                '<h3 style="margin:0 0 10px;font-size:20px">Acesso Restrito</h3>' +
+                '<p style="color:var(--text-1);font-size:14px;margin:0 0 20px">Digite a senha do operador (0000)</p>' +
+                '<input type="password" id="op-pwd-input" style="width:100%; background:rgba(10,10,10,.85); border:1px solid var(--border); color:var(--text-0); border-radius:var(--r-sm); padding:12px 14px; font-size:15px; text-align:center; letter-spacing:4px; margin-bottom:10px;">' +
+                (S.modal.error ? '<div style="color:var(--red);font-size:12px;margin-bottom:10px;">Senha incorreta.</div>' : '') +
+                '<div class="btn-row" style="margin-top:10px">' +
+                '<button class="btn" data-a="closeModal">Cancelar</button>' +
+                '<button class="btn btn-red" data-a="confirmPwd">Acessar</button>' +
+                '</div></div></div>';
+        }
+        
+        // Modal de Estação Ocupada
+        if (S.modal.type === 'in_use') {
+            return '<div class="ov"><button class="ov-bg" data-a="closeModal"></button><div class="modal center">' +
+                '<div style="color:var(--orange);margin-bottom:14px">' + ic('alert', 'logo-md') + '</div>' +
+                '<h3 style="margin:0 0 10px;font-size:20px;color:var(--orange)">Estação em Uso</h3>' +
+                '<p style="color:var(--text-1);font-size:14px;margin:0 0 20px">A STATION ' + pad(S.modal.stId) + ' já está carregando um veículo neste momento. Por favor, escolha uma estação disponível.</p>' +
+                '<div class="btn-row" style="margin-top:10px">' +
+                '<button class="btn btn-red" data-a="closeModal">Entendi</button>' +
+                '</div></div></div>';
+        }
+
+        // Modal de Chamado de Manutenção
+        if (S.modal.type === 'maint_call') {
+            return '<div class="ov"><button class="ov-bg" data-a="closeModal"></button><div class="modal center">' +
+                '<div style="color:var(--green);margin-bottom:14px">' + ic('check', 'logo-md') + '</div>' +
+                '<h3 style="margin:0 0 10px;font-size:20px;color:var(--green)">Chamado Aberto</h3>' +
+                '<p style="color:var(--text-1);font-size:14px;margin:0 0 20px">A solicitação de manutenção foi enviada com sucesso para a central técnica. Verifique a aba Relatórios.</p>' +
+                '<div class="btn-row" style="margin-top:10px">' +
+                '<button class="btn btn-red" data-a="closeModal">Concluir</button>' +
+                '</div></div></div>';
+        }
+
+        if (S.modal.type === 'offline_err') {
+            return '<div class="ov"><button class="ov-bg" data-a="closeModal"></button><div class="modal center">' +
+                '<div style="color:var(--orange);margin-bottom:14px">' + ic('wifioff', 'logo-md') + '</div>' +
+                '<h3 style="margin:0 0 10px;font-size:20px;color:var(--orange)">Carregador Offline</h3>' +
+                '<p style="color:var(--text-1);font-size:14px;margin:0 0 20px">Para conectar com o Celular, restabeleça a conexão com a internet através das configurações, ou utilize o cartão RFID local.</p>' +
+                '<div class="btn-row" style="margin-top:10px">' +
+                '<button class="btn btn-red" data-a="closeModal">Entendi</button>' +
+                '</div></div></div>';
+        }
+
+        if (S.modal.type === 'power_err') {
+            return '<div class="ov"><button class="ov-bg" data-a="closeModal"></button><div class="modal center">' +
+                '<div style="color:var(--orange);margin-bottom:14px">' + ic('zap', 'logo-md') + '</div>' +
+                '<h3 style="margin:0 0 10px;font-size:20px;color:var(--orange)">Limite de Potência</h3>' +
+                '<p style="color:var(--text-1);font-size:14px;margin:0 0 20px">O perfil solicitou uma corrente maior do que a suportada no momento. O carregamento foi ajustado para o máximo permitido (<b>' + S.modal.maxLimit + ' kW</b>).</p>' +
+                '<div class="btn-row" style="margin-top:10px">' +
+                '<button class="btn btn-red" data-a="closeModal">Continuar</button>' +
+                '</div></div></div>';
+        }
+        
+        var key = S.modal.key, icon = (CFG.filter(function (c) { return c[0] === key; })[0] || ['', 'settings'])[1], title = (CFG.filter(function (c) { return c[0] === key; })[0] || ['', '', 'Configurações'])[2];
         return '<div class="ov"><button class="ov-bg" data-a="closeModal" aria-label="' + t('close') + '"></button><div class="modal">' +
-            '<div class="modal-head"><span class="t">' + ic(icon) + t(key) + '</span>' +
+            '<div class="modal-head"><span class="t">' + ic(icon) + title + '</span>' +
             '<button class="modal-x" data-a="closeModal" aria-label="' + t('close') + '">' + ic('x') + '</button></div>' +
             '<div class="det-card" style="padding:0 2px;background:none;border:none">' +
-            cfgRows(key).map(function (r) { return infoRow(r[0], r[1]); }).join('') + '</div>' +
-            '<div class="modal-actions"><button class="btn" data-a="closeModal">' + t('close') + '</button>' +
-            '<button class="btn btn-red" data-a="closeModal">' + t('save') + '</button></div>' +
-            '<div class="modal-lock">' + ic('lock') + t('restricted') + '</div></div></div>';
+            renderCfgContent(key) + '</div>' +
+            '<div class="modal-actions"><button class="btn" data-a="closeModal">Fechar</button>' +
+            '<button class="btn btn-red" data-a="saveModal">Salvar</button></div>' +
+            '<div class="modal-lock">' + ic('lock') + 'Restrito ao Operador</div></div></div>';
     }
 
     function vSync() {
         if (!S.sync) return '';
-        var items = ['sy1', 'sy2', 'sy3', 'sy4', 'sy5', 'sy6'];
         var done = S.sync >= 7;
         return '<div class="ov"><div class="modal" style="max-width:400px">' +
-            '<div class="modal-head"><span class="t">' + ic('refresh') + t('conn_restored') + '</span></div>' +
-            '<p style="margin-bottom:4px">' + (done ? t('sync_done') : t('syncing')) + '</p>' +
+            '<div class="modal-head"><span class="t">' + ic('refresh') + 'Conexão Restabelecida</span></div>' +
+            '<p style="margin-bottom:4px">' + (done ? 'SINCRONIZAÇÃO CONCLUÍDA' : 'Sincronizando dados locais...') + '</p>' +
             '<div class="sync-track"><div class="sync-fill" id="sync-fill-bar" style="width:' + Math.min(100, S.sync / 6 * 100) + '%"></div></div>' +
-            items.map(function (k, i) {
-                return '<div class="sync-item ' + (S.sync > i ? 'on' : '') + '" id="sync-item-' + i + '">' + ic('check') + t(k) + '</div>';
+            ['Sessões', 'Energia', 'Usuários'].map(function (k, i) {
+                return '<div class="sync-item ' + (S.sync > i ? 'on' : '') + '" id="sync-item-' + i + '">' + ic('check') + k + '</div>';
             }).join('') +
-            (done ? '<div class="sync-done">' + t('sync_done') + '</div>' : '') +
+            (done ? '<div class="sync-done">Sincronizado e Online</div>' : '') +
             '</div></div>';
     }
 
     function vDemo() {
-        var fab = '<button class="demo-fab" data-a="demoT">' + ic('sliders') + t('demo') + '</button>';
+        var fab = '<button class="demo-fab" data-a="demoT">' + ic('sliders') + 'Modo Demonstração</button>';
         if (!S.demo) return fab;
         function db(k, label, cls, icon) {
             return '<button class="db ' + (cls || '') + '" data-a="dm" data-v="' + k + '">' + (icon ? ic(icon) : '') + label + '</button>';
         }
         return fab + '<div class="demo-panel">' +
-            '<div class="modal-head" style="margin-bottom:6px"><h4>' + t('demo') + '</h4>' +
-            '<button class="modal-x" data-a="demoT" aria-label="' + t('close') + '">' + ic('x') + '</button></div>' +
+            '<div class="modal-head" style="margin-bottom:6px"><h4>Demonstração</h4>' +
+            '<button class="modal-x" data-a="demoT">' + ic('x') + '</button></div>' +
             '<div class="demo-sec">EXTRAS</div><div class="demo-grid one">' +
             db('solar', 'Painel Solar: ' + (S.solar.connected ? 'ON' : 'OFF'), S.solar.connected ? 'green' : '', 'zap') + '</div>' +
             '<div class="demo-sec">VELOCIDADE DA RECARGA</div>' +
@@ -1465,20 +1741,20 @@
             '<button class="db ' + (S.speed === 60 ? 'red' : '') + '" data-a="speed" data-v="60" style="padding:8px 0; font-size:11px;">60x</button>' +
             '<button class="db ' + (S.speed === 600 ? 'red' : '') + '" data-a="speed" data-v="600" style="padding:8px 0; font-size:11px;">600x</button>' +
             '</div>' +
-            '<div class="demo-sec">' + t('d_conn') + '</div><div class="demo-grid one">' +
-            db('net', S.online ? (t('online') + ' → ' + t('offline')) : (t('offline') + ' → ' + t('online')), '', S.online ? 'wifioff' : 'wifi') + '</div>' +
-            '<div class="demo-sec">' + t('d_veh_s') + '</div><div class="demo-grid">' +
+            '<div class="demo-sec">CONEXÃO</div><div class="demo-grid one">' +
+            db('net', S.online ? 'Online → Offline' : 'Offline → Online', '', S.online ? 'wifioff' : 'wifi') + '</div>' +
+            '<div class="demo-sec">VEÍCULO</div><div class="demo-grid">' +
             db('vconn', t('d_connected'), '', 'plug') + db('vdis', t('d_disconnected'), '') + '</div>' +
-            '<div class="demo-sec">' + t('d_state') + '</div><div class="demo-grid">' +
+            '<div class="demo-sec">ESTADO</div><div class="demo-grid">' +
             db('charge', t('d_charge'), 'red', 'zap') + db('pause', t('d_pause'), 'orange') +
             db('finish', t('d_finish'), '') + db('error', t('d_error'), 'red', 'alert') + '</div>' +
-            '<div class="demo-sec">' + t('d_batt') + '</div><div class="demo-grid four">' +
+            '<div class="demo-sec">BATERIA</div><div class="demo-grid four">' +
             db('b20', '20%', '') + db('b42', '42%', '') + db('b63', '63%', '') + db('b90', '90%', '') + '</div>' +
-            '<div class="demo-sec">' + t('d_auth') + '</div><div class="demo-grid one">' +
+            '<div class="demo-sec">AUTENTICAÇÃO</div><div class="demo-grid one">' +
             db('rfid', t('d_rfid'), 'red', 'card') + '</div>' +
-            '<div class="demo-sec">' + t('d_op') + '</div><div class="demo-grid one">' +
+            '<div class="demo-sec">OPERADOR</div><div class="demo-grid one">' +
             db('high', t('d_high'), 'orange', 'gauge') + db('norm', t('d_norm'), '') + db('st3', t('d_st3'), 'red', 'wrench') + '</div>' +
-            '<div style="height:14px"></div><div class="demo-grid one">' + db('reset', t('d_reset'), '', 'refresh') + '</div>' +
+            '<div style="height:14px"></div><div class="demo-grid one">' + db('reset', 'Resetar demo', '', 'refresh') + '</div>' +
             '</div>';
     }
 
@@ -1549,8 +1825,12 @@
                         S.com.user = data.profile.profileName;
                         S.com.target = parseInt(data.profile.targetChargePercentage);
                         S.com.car = data.profile.vehicleBrand + ' ' + data.profile.vehicleModel;
-                        S.com.mode = data.profile.chargingMode === 'timer' ? 'Timer (22:00-06:00)' : 'Livre';
+                        S.com.mode = data.profile.chargingMode === 'timer' ? 'Timer' : 'Livre';
                         S.com.step = 'ident';
+                        render();
+                    }
+                    if (data.action === 'end_session' && (S.com.step === 'charging' || S.com.step === 'paused' || S.com.step === 'ident')) {
+                        A.comStop();
                         render();
                     }
                 }
