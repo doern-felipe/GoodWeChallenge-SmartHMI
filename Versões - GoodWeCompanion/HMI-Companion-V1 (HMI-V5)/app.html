@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoodWe Companion App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+  
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+</head>
+<body>
+
+  <div class="mobile-frame">
+    <div class="topbar">
+      <div class="topbar-left">
+        <img src="goodwe_logo.png" alt="GoodWe" class="logo logo-sm">
+        <span class="sysname">COMPANION</span>
+      </div>
+      <div class="topbar-right">
+        <div class="lang">
+          <button class="on" data-lang="pt">PT</button>
+          <button data-lang="en">EN</button>
+          <button data-lang="es">ES</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-content" id="app-content">
+      <!-- ABA 1: CONECTAR -->
+      <div id="tab-connect" class="screen active">
+        <div id="screen-home" class="sub-screen active wrap-sm center">
+          <img src="goodwe_logo.png" alt="GoodWe" class="logo logo-md logo-glow" style="margin: 30px auto 20px;">
+          <h1 class="state-title" data-i18n="connect_title">Conectar</h1>
+          <p class="avail" style="margin-bottom: 25px" data-i18n="connect_sub">Vincule ao Smart HMI</p>
+          
+          <div style="width: 100%; max-width: 280px; margin: 0 auto 25px; text-align: left;">
+            <label data-i18n="select_profile_home" style="display: block; font-size: 13px; color: var(--text-1); margin-bottom: 8px;">Perfil a utilizar:</label>
+            <select id="home-profile-select" class="styled-select"></select>
+          </div>
+
+          <div class="auth-row" style="flex-direction: column; align-items: center; gap: 24px;">
+            <button class="btn btn-red" style="width: 100%; max-width: 280px;" onclick="startConnectionFlow('scanner')">
+              <span id="ic-qr"></span> <span data-i18n="btn_scan">Escanear QR Code</span>
+            </button>
+            <button class="btn" style="width: 100%; max-width: 280px;" onclick="startConnectionFlow('manual')">
+              <span id="ic-phone"></span> <span data-i18n="btn_manual">Digitar Código</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="screen-scanner" class="sub-screen wrap-sm center">
+          <h2 style="margin-top:20px" data-i18n="scan_title">Aponte a Câmera</h2>
+          <div id="reader" style="margin: 20px auto; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-soft);"></div>
+          <button class="btn" onclick="stopScanner(); showSubScreen('screen-home')" style="width: 100%;">
+            <span id="ic-x"></span> <span data-i18n="cancel">Cancelar</span>
+          </button>
+        </div>
+
+        <div id="screen-manual" class="sub-screen wrap-sm center">
+          <h2 style="margin-top:40px" data-i18n="manual_title">Inserir Código</h2>
+          <div class="field" style="margin: 30px 0; text-align: left;">
+            <label data-i18n="code_label">Código do HMI</label>
+            <input type="text" id="manual-code-input" placeholder="Ex: 123-456" style="text-align: center; font-size: 24px; letter-spacing: 4px;">
+          </div>
+          <div style="display:flex; gap: 12px;">
+            <button class="btn" onclick="showSubScreen('screen-home')" style="flex: 1" data-i18n="cancel">Cancelar</button>
+            <button class="btn btn-red" onclick="validateManualCode()" style="flex: 1" data-i18n="confirm">Conectar</button>
+          </div>
+        </div>
+
+        <div id="screen-session-setup" class="sub-screen wrap-sm center">
+          <div class="vstate ok" style="margin-top: 20px;"><span id="ic-check-1"></span><span data-i18n="hmi_found">HMI Encontrado</span></div>
+          <h2 style="font-size: 32px; letter-spacing: 2px; color: var(--red); margin: 10px 0 20px;" id="connected-code-display">---</h2>
+          <div style="text-align: left; background: rgba(20,20,20,.8); padding: 16px; border-radius: 12px; margin-bottom: 24px;">
+            <h4 style="margin-bottom: 12px; color: var(--text-2);" data-i18n="confirm_connection">Confirmar conexão com:</h4>
+            <div id="confirm-profile-details"></div>
+          </div>
+          <div style="display:flex; gap: 12px;">
+            <button class="btn" onclick="cancelSession()" style="flex: 1" data-i18n="cancel">Cancelar</button>
+            <button class="btn btn-red" onclick="autorizarSessaoHome()" style="flex: 1" data-i18n="confirm">Confirmar</button>
+          </div>
+        </div>
+
+        <div id="screen-active" class="sub-screen wrap-sm center">
+          <div class="vstate ok" style="margin-top: 20px;"><span id="ic-check-2"></span><span data-i18n="session_auth">Sessão Autorizada</span></div>
+          <h3 style="margin-top: 10px; color: var(--text-0);" id="active-profile-name"></h3>
+          <p style="color: var(--text-2);" id="active-profile-vehicle"></p>
+
+          <div class="ring-box" style="margin-top: 20px;">
+            <svg width="200" height="200" viewBox="0 0 200 200">
+              <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="8"/>
+              <circle id="app-ring" cx="100" cy="100" r="90" fill="none" stroke="var(--red)" stroke-width="8" stroke-linecap="round" stroke-dasharray="565.48" stroke-dashoffset="565.48" transform="rotate(-90 100 100)" style="transition:stroke-dashoffset .6s ease;filter:drop-shadow(0 0 10px rgba(255,0,0,.5))"/>
+            </svg>
+            <div class="inner">
+              <div class="pct" id="app-charging-percent" style="font-size: 42px;">0%</div>
+            </div>
+          </div>
+
+          <div style="background: rgba(20,20,20,.8); padding: 16px; border-radius: 12px; margin-top: 20px; width: 100%; text-align: left;">
+            <div style="display:flex; justify-content: space-between; margin-bottom: 8px;">
+              <span style="color: var(--text-2);" data-i18n="time_lbl">Tempo:</span>
+              <span id="app-charging-time" style="color: var(--text-0); font-weight: 600;">00:00:00</span>
+            </div>
+            <div style="display:flex; justify-content: space-between; margin-bottom: 8px;">
+              <span style="color: var(--text-2);" data-i18n="cost_lbl">Custo Estimado:</span>
+              <span id="app-charging-cost" style="color: var(--green); font-weight: 600;">R$ 0,00</span>
+            </div>
+            <div style="display:flex; justify-content: space-between;">
+              <span style="color: var(--text-2);" data-i18n="payment_lbl">Pagamento:</span>
+              <span id="app-charging-pay" style="color: var(--text-0); font-weight: 600;">----</span>
+            </div>
+          </div>
+
+          <button class="btn" style="margin-top: 30px; width: 100%;" onclick="endSession()">
+            <span id="ic-stop"></span> <span data-i18n="end_session">Encerrar Sessão</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ABA 2: PERFIS -->
+      <div id="tab-profiles" class="screen">
+        <div id="screen-profiles-list" class="sub-screen active wrap-sm">
+          <div class="sec-head"><span id="ic-users"></span><h2 data-i18n="my_profiles" style="margin:0;">Meus Perfis</h2></div>
+          <div id="profiles-container" style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px;"></div>
+          
+          <div style="display:flex; gap: 12px; width: 100%;">
+            <button class="btn" style="flex:1; padding: 10px;" onclick="showSubScreen('screen-sync-opts', 'tab-profiles')">
+              <span id="ic-refresh"></span> <span data-i18n="sync_hmi">Sincronizar</span>
+            </button>
+            <button class="btn btn-red" style="flex:1; padding: 10px;" onclick="showSubScreen('screen-create-profile', 'tab-profiles')">
+              <span id="ic-plus"></span> <span data-i18n="create_profile">Criar Perfil</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="screen-sync-opts" class="sub-screen wrap-sm center">
+          <h2 style="margin-top:30px; color:var(--red);">Sincronizar com HMI</h2>
+          <p style="color:var(--text-1); margin-bottom: 30px;">Envie os perfis para o seu carregador Residencial.</p>
+          <div class="field" style="width: 100%; text-align: left; margin-bottom: 20px;">
+            <label>Código do Carregador (Ex: RES-1234)</label>
+            <input type="text" id="sync-code-input" placeholder="RES-XXXX" style="text-align: center; font-size: 20px; letter-spacing: 2px; text-transform: uppercase;">
+          </div>
+          <button class="btn btn-red" style="width: 100%;" onclick="validateSyncCode()">Confirmar e Enviar</button>
+          <button class="link-btn" onclick="showSubScreen('screen-profiles-list', 'tab-profiles')" data-i18n="cancel">Cancelar</button>
+        </div>
+
+        <div id="screen-create-profile" class="sub-screen wrap-sm" style="padding-bottom: 40px;">
+          <h2 style="margin-bottom: 20px; color: var(--red);" data-i18n="new_profile">Novo Perfil</h2>
+          <div class="field-grid" style="grid-template-columns: 1fr;">
+            <div class="field"><label data-i18n="profile_name">Nome do Perfil</label><input type="text" id="p-name" placeholder="Ex: Principal"></div>
+            <div class="field"><label data-i18n="brand">Marca</label><select id="p-brand" onchange="updateModels()" class="styled-select"></select></div>
+            <div class="field"><label data-i18n="model">Modelo</label><select id="p-model" class="styled-select"></select></div>
+            <div class="field">
+              <label data-i18n="charge_mode">Modo de Carregamento</label>
+              <select id="p-mode" class="styled-select">
+                <option value="free" data-i18n="mode_free">Livre</option>
+                <option value="timer" data-i18n="mode_timer">Timer (Ex: 22:00 as 06:00)</option>
+              </select>
+            </div>
+            <div class="field"><label data-i18n="charge_limit">Limite de Carga (%)</label><input type="number" id="p-limit" min="10" max="100" value="80"></div>
+          </div>
+
+          <div class="sec-head" style="margin-top: 30px;"><span id="ic-card"></span><h2 style="margin:0; font-size: 18px;" data-i18n="payment">Pagamento</h2></div>
+          <p style="font-size: 12px; color: var(--orange); margin-bottom: 12px;" data-i18n="mvp_note">* Apenas dados de teste do MVP são aceitos.</p>
+          <div class="field-grid" style="grid-template-columns: 1fr;">
+            <div class="field"><label data-i18n="card_num">Número do Cartão</label><input type="text" id="p-card-num" value="1111 2222 3333 4444"></div>
+            <div class="field"><label data-i18n="card_name">Nome no Cartão</label><input type="text" id="p-card-name" value="xxxxxxxx"></div>
+          </div>
+          <div class="field-grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="field"><label>CVV</label><input type="text" id="p-card-cvv" value="123"></div>
+            <div class="field"><label data-i18n="card_val">Validade</label><input type="text" id="p-card-val" value="12/34"></div>
+          </div>
+          <div style="display:flex; gap: 12px; margin-top: 30px;">
+            <button class="btn" onclick="showSubScreen('screen-profiles-list', 'tab-profiles')" style="flex: 1" data-i18n="cancel">Cancelar</button>
+            <button class="btn btn-red" onclick="saveProfile()" style="flex: 1" data-i18n="save">Salvar</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="bottom-nav">
+      <button class="nav-item active" onclick="switchTab('tab-connect', this)"><span id="ic-nav-zap"></span> <span data-i18n="nav_connect">Conectar</span></button>
+      <button class="nav-item" onclick="switchTab('tab-profiles', this)"><span id="ic-nav-users"></span> <span data-i18n="nav_profiles">Perfis</span></button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
