@@ -1,36 +1,91 @@
-# ⚡ GoodWe Smart HMI - Web & IoT Prototype
+# ⚡ GoodWe Smart HMI
 
-Protótipo conceitual de interface HMI para carregadores de veículos elétricos (EV), focado em uma experiência fluida ("offline-first") e com integração IoT em tempo real para monitoramento de energia solar.
+Protótipo conceitual de uma **Smart HMI para carregadores de veículos elétricos (EV)**, desenvolvido para o **GoodWe Challenge 2026**.
 
-## 🗂️ Estrutura do Repositório
+A proposta busca melhorar a experiência de carregamento através de uma interface intuitiva, gerenciamento de estações, integração com aplicativo, monitoramento de energia solar e comunicação IoT em tempo real.
 
-Este projeto foi construído de forma iterativa. O repositório está dividido em pastas para demonstrar a evolução do código, a correção de gargalos de renderização e a adição de funcionalidades:
+> **ONE CHARGER. TWO EXPERIENCES. LOCAL CONTROL. CENTRALIZED MANAGEMENT. OFFLINE-FIRST.**
 
-* **`v1/` e `v2/`**: Versões iniciais contendo o histórico de desenvolvimento, testes de layout e a evolução da lógica de estado (com bugs mantidos para fins de histórico e aprendizado).
-* **`v3/`**: HMI Core (Standalone). A versão final da interface rodando de forma estável com Vanilla JavaScript e CSS customizado. Focada em transições suaves e navegação sem pulos de tela, independente de conexões externas.
-* **`v4/`**: Integração IoT (Wokwi & MQTT). A versão completa que conecta o painel de demonstração da interface a um microcontrolador ESP32 virtual, refletindo dados de sensores físicos em tempo real.
+---
 
-## 🚀 Tecnologias Utilizadas
+## 🚀 Funcionalidades
 
-* **Frontend:** HTML5, CSS3, Vanilla JS
-* **Hardware Simulador:** Wokwi, ESP32, MicroPython
-* **Protocolos e APIs:** MQTT (via bibliotecas `umqtt.simple` no backend e `mqtt.js` via WebSockets no frontend)
-* **Componentes Físicos (Virtuais):** Display OLED SSD1306, Sensor de Luz (LDR) e Servo Motor
+### 🏠 Residencial
 
-## ⚙️ Como Executar o Projeto
+* Controle e agendamento de carregamento
+* Limites de potência
+* Monitoramento de energia
+* Integração com monitoramento solar
+* Modo demonstração
 
-### Rodando a Versão 3 (Apenas Interface)
-1. Navegue até a pasta `v3`.
-2. Dê um duplo clique no arquivo `.html` para executá-lo diretamente no seu navegador.
+### ⚡ Comercial
 
-### Rodando a Versão 4 (Integração IoT)
-1. Acesse o projeto do hardware no Wokwi: `[https://wokwi.com/projects/475378026171880449]`
-2. Inicie a simulação (botão Play) e aguarde o terminal exibir a mensagem `MQTT Conectado ao Broker em Nuvem!`.
-3. Navegue até a pasta `v4` e abra o arquivo `.html` no navegador.
-4. Clique no botão de engrenagem flutuante (Modo Demonstração) no canto inferior direito.
-5. Ative a opção **Painel Solar: ON**.
-6. No Wokwi, altere a barra de luminosidade do sensor LDR e observe a interface da web e o display OLED se atualizarem simultaneamente!
+* Seleção de estação
+* Conexão via App, RFID e QR Code
+* Histórico de sessões
+* Controle de corrente conforme limites da estação
+* Pagamentos e tarifas
+
+### 🖥️ Operador
+
+* Histórico de usuários e RFID
+* Gestão de pagamentos e tarifas
+* Limites de potência e carga
+* Agendamento
+* Manutenção e chamados
+* Diagnósticos e status da rede
+* Relatórios em tempo real
+* Gerenciamento de energia, firmware e integrações
+
+### 📱 Companion App
+
+* Seleção entre experiência Residencial e Comercial
+* Integração com monitoramento solar
+* Conexão com carregadores
+* FAQ
+* Chat com IA
+* Atendimento humano
+
+---
+
+## 📈 Evolução
+
+| Versão | Marco                                        |
+| ------ | -------------------------------------------- |
+| **V1** | Protótipo inicial desenvolvido no Base44     |
+| **V2** | Reconstrução em HTML, CSS e JavaScript       |
+| **V3** | Evolução da HMI e experiência do usuário     |
+| **V4** | Integração Solar/IoT com Wokwi, ESP32 e MQTT |
+| **V5** | Companion App e gerenciamento avançado       |
+
+🔗 **[Protótipo V1 — Base44](https://goodwe-smart-link.base44.app/)**
+🔗 **[Simulador IoT — Wokwi](https://wokwi.com/projects/475378026171880449)**
+
+---
+
+## 🛠️ Tecnologias
+
+**Web:** HTML5 · CSS3 · JavaScript
+**IoT:** ESP32 · MicroPython · Wokwi · MQTT · WebSockets
+**App:** Kotlin · Jetpack Compose · Room · CameraX · ML Kit · Socket.IO
+
+---
+
+## 🤖 Uso de IA
+
+O desenvolvimento do código contou com **auxílio de ferramentas de Inteligência Artificial**, principalmente devido ao prazo reduzido do Challenge.
+
+As **ideias, funcionalidades, arquitetura da solução, fluxos, decisões de produto e direcionamento das melhorias foram definidos pelo autor**. O código gerado com auxílio de IA foi revisado, testado, modificado e integrado ao projeto conforme essas decisões.
+
+> **A IA auxiliou na implementação. A concepção e evolução do Smart HMI foram conduzidas pelo autor.**
+
+---
 
 ## 👨‍💻 Autor
 
-Desenvolvido por Felipe de Oliveira Doern.
+**Felipe de Oliveira Doern**
+Computer Science Student @ FIAP
+
+**GoodWe Challenge 2026**
+
+> Protótipo conceitual — não representa necessariamente um produto oficial da GoodWe.
