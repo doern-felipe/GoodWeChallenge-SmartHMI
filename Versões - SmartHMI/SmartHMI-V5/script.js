@@ -243,8 +243,8 @@
             limit: 32, lock: false, load: true, timer: null, syncCode: '', activeProfileIdx: 0,
             sched: { s: '22:00', e: '06:00', t: 80, d: [1, 1, 1, 1, 1, 0, 0] },
             profiles: [
-                { n: 'JOÃO', c: 'c-red', a: '32 A', h: 'Timer' },
-                { n: 'MARIA', c: 'c-green', a: '16 A', h: 'Livre' }
+                { n: 'JOÃO', c: 'c-red', a: '32 A', h: 'Timer', rawLimit: '32' },
+                { n: 'MARIA', c: 'c-green', a: 'Auto', h: 'Livre', rawLimit: 'auto' }
             ]
         },
         com: {
@@ -372,6 +372,12 @@
 
                 if (r.sched.d[day] && inWindow) {
                     r.v = 'charging';
+                    
+                    var activeProf = S.res.profiles[S.res.activeProfileIdx];
+                    if (activeProf && activeProf.rawLimit && activeProf.rawLimit !== 'auto') {
+                        S.res.limit = parseInt(activeProf.rawLimit);
+                        S.res.load = false; 
+                    }
                     dirty = true;
                 }
             }
@@ -450,9 +456,21 @@
                 S.res.v = 'scheduled'; 
             } else {
                 S.res.v = 'charging';
+                var activeProf = S.res.profiles[S.res.activeProfileIdx];
+                if (activeProf && activeProf.rawLimit && activeProf.rawLimit !== 'auto') {
+                    S.res.limit = parseInt(activeProf.rawLimit);
+                    S.res.load = false; 
+                }
             }
         },
-        resForceStart: function () { S.res.v = 'charging'; }, 
+        resForceStart: function () { 
+            S.res.v = 'charging'; 
+            var activeProf = S.res.profiles[S.res.activeProfileIdx];
+            if (activeProf && activeProf.rawLimit && activeProf.rawLimit !== 'auto') {
+                S.res.limit = parseInt(activeProf.rawLimit);
+                S.res.load = false; 
+            }
+        }, 
         resPause: function () { S.res.v = 'paused'; },
         resResume: function () { S.res.v = 'charging'; },
         resStop: function () { S.res.v = 'done'; },
@@ -817,7 +835,6 @@
         else if (r.v === 'connected') {
             var need = (r.target - r.batt) / 100 * 45, secs = need / r.power * 3600;
             
-            // NOVO: Seleção de Perfil no HMI Residencial
             var profileOpts = S.res.profiles.map(function(p, i) {
                 return '<option value="' + i + '" ' + (i === S.res.activeProfileIdx ? 'selected' : '') + '>' + p.n + ' (' + p.a + ')</option>';
             }).join('');
@@ -839,7 +856,7 @@
                 profileSelectHtml + 
                 '<div class="btn-row"><button class="btn btn-red" data-a="resStart">' + ic('play') + t('start_charge') + '</button></div>' +
                 '<div class="quick-row">' +
-                quick('sliders', t('curr_limit_s'), r.limit + ' A') +
+                quick('sliders', t('curr_limit_s'), r.load ? 'AUTO' : r.limit + ' A') +
                 quick('calendar', t('schedule').toUpperCase(), r.sched.s.slice(0, 2) + '–' + r.sched.e.slice(0, 2)) +
                 quick('clock', 'TIMER', r.timer ? (r.timer < 60 ? r.timer + ' min' : (r.timer / 60) + 'h') : t('disabled')) +
                 quick(r.lock ? 'lock' : 'unlock', t('lock').toUpperCase(), r.lock ? t('enabled') : t('disabled')) +
@@ -953,8 +970,10 @@
         return '<div class="wrap-sm">' +
             '<div class="set-card"><div class="set-title">' + ic('sliders') + t('curr_limit') + '</div>' +
             '<div class="opt-row">' + limits.map(function (v) {
-                return '<button class="opt ' + (r.limit === v ? 'on' : '') + '" data-a="limit" data-v="' + v + '">' + v + ' A</button>';
-            }).join('') + '</div></div>' +
+                return '<button class="opt ' + (r.limit === v ? 'on' : '') + '" data-a="limit" data-v="' + v + '" ' + (r.load ? 'disabled style="opacity:0.4; cursor:not-allowed;"' : '') + '>' + v + ' A</button>';
+            }).join('') + '</div>' +
+            (r.load ? '<div style="margin-top:12px;font-size:13px;color:var(--orange);display:flex;align-items:center;gap:6px;">' + ic('zap') + ' Controlado automaticamente pela Gestão de Carga</div>' : '') +
+            '</div>' +
             '<div class="set-card"><div class="set-title">' + ic('calendar') + t('schedule') + '</div>' +
             '<div class="field-grid">' +
             '<div class="field"><label>' + t('start_t') + '</label><input type="time" value="' + r.sched.s + '" data-b="ss"></div>' +
@@ -1515,8 +1534,9 @@
                         return { 
                             n: p.profileName.toUpperCase(), 
                             c: cores[i % cores.length], 
-                            a: '32 A', 
-                            h: p.chargingMode === 'timer' ? 'Timer' : 'Livre' 
+                            a: p.currentLimit === 'auto' ? 'Auto' : p.currentLimit + ' A', 
+                            h: p.chargingMode === 'timer' ? 'Timer' : 'Livre',
+                            rawLimit: p.currentLimit
                         };
                     });
                     S.res.v = 'idle'; 

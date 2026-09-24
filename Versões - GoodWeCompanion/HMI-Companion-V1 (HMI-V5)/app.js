@@ -33,11 +33,12 @@ const TR = {
     confirm_connection: "Confirmar conexão com:", mode_label: "Modo:", limit_label: "Limite:",
     scan_title: "Aponte a Câmera", manual_title: "Inserir Código", code_label: "Código do HMI", cancel: "Cancelar", confirm: "Conectar",
     hmi_found: "HMI Encontrado", session_auth: "Sessão Autorizada", end_session: "Encerrar Sessão",
-    my_profiles: "Meus Perfis", create_profile: "Novo", sync_hmi: "Sincronizar", nav_connect: "Conectar", nav_profiles: "Perfis",
+    my_profiles: "Meus Perfis", create_profile: "Novo", sync_hmi: "Sincronizar", sync_sub: "Envie os perfis para o seu carregador Residencial.", nav_connect: "Conectar", nav_profiles: "Perfis",
     new_profile: "Novo Perfil", profile_name: "Nome do Perfil", brand: "Marca", model: "Modelo", charge_mode: "Modo de Carregamento",
-    mode_free: "Livre", mode_timer: "Timer (Ex: 22:00 as 06:00)", charge_limit: "Limite de Carga (%)",
+    mode_free: "Livre", mode_timer: "Timer (Ex: 22:00 as 06:00)", charge_limit: "Limite de Carga (%)", current_limit: "Limite de Corrente (A)", current_auto: "Definido pelo Carregador",
     payment: "Pagamento", mvp_note: "* Apenas dados de teste do MVP são aceitos.", card_num: "Número do Cartão", card_name: "Nome no Cartão", card_val: "Validade", save: "Salvar",
-    use_profile: "USAR", delete_profile: "APAGAR", time_lbl: "Tempo:", cost_lbl: "Custo Estimado:", payment_lbl: "Pagamento:"
+    use_profile: "USAR", delete_profile: "APAGAR", time_lbl: "Tempo:", cost_lbl: "Custo Estimado:", payment_lbl: "Pagamento:",
+    sync_success: "Perfis enviados para o HMI com sucesso!"
   },
   en: {
     connect_title: "Connect", connect_sub: "Link to Smart HMI", btn_scan: "Scan QR Code", btn_manual: "Enter Code",
@@ -45,11 +46,12 @@ const TR = {
     confirm_connection: "Confirm connection with:", mode_label: "Mode:", limit_label: "Limit:",
     scan_title: "Point your Camera", manual_title: "Enter Code", code_label: "HMI Code", cancel: "Cancel", confirm: "Connect",
     hmi_found: "HMI Found", session_auth: "Session Authorized", end_session: "End Session",
-    my_profiles: "My Profiles", create_profile: "New", sync_hmi: "Sync", nav_connect: "Connect", nav_profiles: "Profiles",
+    my_profiles: "My Profiles", create_profile: "New", sync_hmi: "Sync", sync_sub: "Send profiles to your Residential charger.", nav_connect: "Connect", nav_profiles: "Profiles",
     new_profile: "New Profile", profile_name: "Profile Name", brand: "Brand", model: "Model", charge_mode: "Charging Mode",
-    mode_free: "Free", mode_timer: "Timer (Ex: 22:00 to 06:00)", charge_limit: "Charge Limit (%)",
+    mode_free: "Free", mode_timer: "Timer (Ex: 22:00 to 06:00)", charge_limit: "Charge Limit (%)", current_limit: "Current Limit (A)", current_auto: "Defined by Charger",
     payment: "Payment", mvp_note: "* Only MVP test data is accepted.", card_num: "Card Number", card_name: "Name on Card", card_val: "Expiry", save: "Save",
-    use_profile: "USE", delete_profile: "DELETE", time_lbl: "Time:", cost_lbl: "Est. Cost:", payment_lbl: "Payment:"
+    use_profile: "USE", delete_profile: "DELETE", time_lbl: "Time:", cost_lbl: "Est. Cost:", payment_lbl: "Payment:",
+    sync_success: "Profiles synced successfully!"
   },
   es: {
     connect_title: "Conectar", connect_sub: "Vincular al Smart HMI", btn_scan: "Escanear Código QR", btn_manual: "Ingresar Código",
@@ -57,11 +59,12 @@ const TR = {
     confirm_connection: "Confirmar conexión con:", mode_label: "Modo:", limit_label: "Límite:",
     scan_title: "Apunta la Cámara", manual_title: "Ingresar Código", code_label: "Código del HMI", cancel: "Cancelar", confirm: "Conectar",
     hmi_found: "HMI Encontrado", session_auth: "Sesión Autorizada", end_session: "Finalizar Sesión",
-    my_profiles: "Mis Perfiles", create_profile: "Nuevo", sync_hmi: "Sincronizar", nav_connect: "Conectar", nav_profiles: "Perfiles",
+    my_profiles: "Mis Perfiles", create_profile: "Nuevo", sync_hmi: "Sincronizar", sync_sub: "Envíe los perfiles a su cargador Residencial.", nav_connect: "Conectar", nav_profiles: "Perfiles",
     new_profile: "Nuevo Perfil", profile_name: "Nombre del Perfil", brand: "Marca", model: "Modelo", charge_mode: "Modo de Carga",
-    mode_free: "Libre", mode_timer: "Timer (Ej: 22:00 a 06:00)", charge_limit: "Límite de Carga (%)",
+    mode_free: "Libre", mode_timer: "Timer (Ej: 22:00 a 06:00)", charge_limit: "Límite de Carga (%)", current_limit: "Límite de Corriente (A)", current_auto: "Definido por el Cargador",
     payment: "Pago", mvp_note: "* Solo se aceptan datos de prueba del MVP.", card_num: "Número de Tarjeta", card_name: "Nombre en Tarjeta", card_val: "Vencimiento", save: "Guardar",
-    use_profile: "USAR", delete_profile: "BORRAR", time_lbl: "Tiempo:", cost_lbl: "Costo Est.:", payment_lbl: "Pago:"
+    use_profile: "USAR", delete_profile: "BORRAR", time_lbl: "Tiempo:", cost_lbl: "Costo Est.:", payment_lbl: "Pago:",
+    sync_success: "Perfiles enviados con éxito!"
   }
 };
 
@@ -77,7 +80,8 @@ const I = {
   stop: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="i"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>',
   plus: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="i"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>',
   card: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="i"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>',
-  refresh: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="i"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/></svg>'
+  refresh: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="i"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/></svg>',
+  sliders: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="i"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h10M18 18h2"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="16" cy="18" r="2"/></svg>'
 };
 
 document.getElementById('ic-qr').innerHTML = I.qr; document.getElementById('ic-phone').innerHTML = I.phone;
@@ -180,8 +184,9 @@ function saveProfile() {
 
   const newProfile = {
     profileName: pName, vehicleBrand: document.getElementById('p-brand').value, vehicleModel: document.getElementById('p-model').value,
-    chargingMode: document.getElementById('p-mode').value, targetChargePercentage: document.getElementById('p-limit').value
+    chargingMode: document.getElementById('p-mode').value, currentLimit: document.getElementById('p-current').value, targetChargePercentage: document.getElementById('p-limit').value
   };
+  
   const profiles = JSON.parse(localStorage.getItem('gw_profiles_v3') || '[]');
   profiles.push(newProfile);
   localStorage.setItem('gw_profiles_v3', JSON.stringify(profiles));
@@ -197,9 +202,11 @@ function renderProfiles() {
     container.innerHTML = `<p style="color:var(--text-2); text-align:center; margin-top:20px;">${t('no_profiles')}</p>`; return;
   }
   profiles.forEach((p, index) => {
+    const limitStr = p.currentLimit === 'auto' ? t('current_auto') : p.currentLimit + ' A';
     container.innerHTML += `<div class="prof"><div class="prof-top"><span class="prof-name">${p.profileName}</span></div>
         <div class="prof-line">${I.zap} ${p.vehicleBrand} ${p.vehicleModel}</div>
-        <div class="prof-line">${I.check} ${t('mode_label')} ${t('mode_' + p.chargingMode)} | ${t('limit_label')} ${p.targetChargePercentage}%</div>
+        <div class="prof-line">${I.check} ${t('mode_label')} ${t('mode_' + p.chargingMode)} | Meta: ${p.targetChargePercentage}%</div>
+        <div class="prof-line">${I.sliders} ${t('limit_label')} ${limitStr}</div>
         <div class="prof-actions"><button onclick="deleteProfile(${index})" class="btn" style="flex:1; padding: 10px; font-size:13px;">${t('delete_profile')}</button></div></div>`;
   });
 }
@@ -251,7 +258,7 @@ function validateSyncCode() {
   
   if (typeof mqttClient !== 'undefined' && mqttClient.connected) {
       mqttClient.publish(`goodwe_hmi/sync/${code}`, JSON.stringify({ action: 'sync_profiles', profiles: profiles }));
-      showToast(currentLang === 'pt' ? "Perfis enviados para o HMI com sucesso!" : "Profiles synced successfully!", false);
+      showToast(t('sync_success'), false);
       document.getElementById('sync-code-input').value = '';
       showSubScreen('screen-profiles-list', 'tab-profiles');
   } else {
@@ -261,18 +268,18 @@ function validateSyncCode() {
 
 function processConnectionCode(code) {
   currentSessionCode = code;
-  
-  // Inscreve no tópico para escutar atualizações deste carregador específico
   mqttClient.subscribe(`goodwe_hmi/session/${code}/to_app`);
   
   document.getElementById('connected-code-display').innerText = code;
   const profiles = JSON.parse(localStorage.getItem('gw_profiles_v3') || '[]');
   const p = profiles[document.getElementById('home-profile-select').value];
+  const limitStr = p.currentLimit === 'auto' ? t('current_auto') : p.currentLimit + ' A';
   
   document.getElementById('confirm-profile-details').innerHTML = `
       <div class="prof-name" style="font-size: 18px; color: var(--text-0); margin-bottom: 6px;">${p.profileName}</div>
       <div style="font-size: 14px; color: var(--text-1); margin-bottom: 4px;">${I.zap} ${p.vehicleBrand} ${p.vehicleModel}</div>
-      <div style="font-size: 13px; color: var(--text-2);">${I.check} ${t('mode_label')} ${t('mode_' + p.chargingMode)} | ${t('limit_label')} ${p.targetChargePercentage}%</div>
+      <div style="font-size: 13px; color: var(--text-2);">${I.check} ${t('mode_label')} ${t('mode_' + p.chargingMode)} | Meta: ${p.targetChargePercentage}%</div>
+      <div style="font-size: 13px; color: var(--text-2); margin-top:4px;">${I.sliders} ${limitStr}</div>
   `;
   showSubScreen('screen-session-setup');
 }
