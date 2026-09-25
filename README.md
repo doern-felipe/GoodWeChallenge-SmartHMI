@@ -85,6 +85,7 @@ As **ideias, funcionalidades, arquitetura da solução, fluxos, decisões de pro
 
 **Felipe de Oliveira Doern**
 Computer Science Student @ FIAP
+
 **Tom Stringasci Albuquerque Coelho Morais**
 Computer Science Student @ FIAP
 
